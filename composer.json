@@ -1,16 +1,23 @@
 {
     "type": "library",
-    "name": "locomotivemtl/charcoal-contrib-foobar",
-    "description": "Charcoal service provider for my cool feature.",
+    "name": "locomotivemtl/charcoal-contrib-cookie-consent",
+    "description": "Charcoal module for cookie consent support useing vanilla-cookieconsent.",
     "keywords": [
-        "charcoal"
+        "charcoal",
+        "contrib",
+        "cookie",
+        "consent"
     ],
-    "homepage": "https://locomotivemtl.github.io/charcoal-contrib-foobar/",
+    "homepage": "https://locomotivemtl.github.io/charcoal-contrib-cookie-consent/",
     "license": "MIT",
     "authors": [
         {
             "name": "Locomotive",
             "homepage": "https://locomotive.ca"
+        },
+        {
+            "name": "Joel Alphonso",
+            "email": "info@joelalphonso.com"
         }
     ],
     "minimum-stability": "dev",
@@ -21,7 +28,7 @@
         }
     },
     "require": {
-        "php": ">7.1"
+        "php": "^7.4 || ^8.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.1",
