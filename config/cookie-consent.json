@@ -1,0 +1,12 @@
+{
+    "delay": 0,
+    "language": {
+        "default": "document"
+    },
+    "gui_options": {
+        "consent_modal": {
+            "layout": "box",
+            "position": "bottom right"
+        }
+    }
+}
