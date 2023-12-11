@@ -1,2 +1,10 @@
 {
+    "view": {
+        "paths": []
+    },
+    "metadata": {
+        "paths": [
+            "vendor/locomotivemtl/charcoal-contrib-cookie-consent/metadata/"
+        ]
+    }
 }

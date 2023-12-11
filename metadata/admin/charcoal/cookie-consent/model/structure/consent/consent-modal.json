@@ -1,0 +1,42 @@
+{
+    "properties": {
+        "title": {
+            "label": {
+                "en": "Title",
+                "fr": "Titre"
+            }
+        },
+        "description": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "label": {
+                "en": "Description",
+                "fr": "Description"
+            }
+        },
+        "revisionMessage": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "label": {
+                "en": "Revision Message",
+                "fr": "Message de révision"
+            }
+        }
+    },
+
+    "admin": {
+        "form_group": {
+            "l10n_mode": "loop_inputs",
+            "properties": [
+                "title",
+                "description",
+                "revisionMessage"
+            ],
+            "layout": {
+                "structure": [
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] }
+                ]
+            }
+        }
+    }
+}

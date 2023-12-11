@@ -1,0 +1,26 @@
+{
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "auto-increment"
+        },
+        "policyPageId": {
+            "type": "object"
+        },
+        "consentModal": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/consent-modal"
+        },
+        "preferencesModal": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preferences-modal"
+        }
+    },
+
+    "sources":{
+        "default":{
+            "table":"charcoal_consent"
+        }
+    },
+    "default_source":"default"
+}
