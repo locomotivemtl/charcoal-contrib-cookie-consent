@@ -1,0 +1,249 @@
+{
+    "labels": {
+        "name": {
+            "en": "Cookie Categories",
+            "fr": "Catégories de Témoin"
+        },
+        "singular_name": {
+            "en": "Cookie Category",
+            "fr": "Catégorie de témoin"
+        },
+        "create_item": {
+            "en": "Create new Cookie Category",
+            "fr": "Créer une catégorie de cookie"
+        },
+        "new_item": {
+            "en": "New Cookie Category",
+            "fr": "Nouvelle catégorie de témoin"
+        },
+        "view_item": {
+            "en": "View Cookie Category",
+            "fr": "Voir la catégorie de témoin"
+        },
+        "edit_item": {
+            "en": "Edit Cookie Category",
+            "fr": "Modifier catégorie de témoin"
+        },
+        "all_items": {
+            "en": "All Cookie Categories",
+            "fr": "Tous les catégories de témoins"
+        }
+    },
+
+    "properties": {
+        "id": {
+            "label": {
+                "en": "Identifier",
+                "fr": "Identifiant"
+            },
+            "input_type": "charcoal/admin/property/input/text"
+        },
+        "readOnly": {
+            "label": {
+                "en": "Read-only",
+                "fr": "Non-édiatable"
+            },
+            "notes": {
+                "en": "Defines the category as necessary and won't be able to be disabled.",
+                "fr": "La catégorie est nécéssaire et sa désactivation est impossible."
+            }
+        },
+        "cookies": {
+            "label": {
+                "en": "Cookies",
+                "fr": "Témoins"
+            },
+            "input_type": "charcoal/admin/property/input/tabulator",
+            "input_options": {
+                "addRow": true,
+                "addRowLabel": {
+                    "en": "Add Cookie",
+                    "fr": "Ajouter un témoin"
+                },
+                "validateOn": [
+                    "dataLoaded",
+                    "tableBuilt"
+                ]
+            },
+            "tabulator_options": {
+                "layout": "fitColumns",
+                "columns": [
+                    {
+                        "rowHandle": true,
+                        "formatter": "handle",
+                        "headerSort": false,
+                        "frozen": true,
+                        "widthShrink": 0,
+                        "width": 30,
+                        "minWidth": 30,
+                        "contextMenu": false
+                    },
+                    {
+                        "title": {
+                            "en": "Name",
+                            "fr": "Nom"
+                        },
+                        "field": "name",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 2
+                    },
+                    {
+                        "title": {
+                            "en": "Duration",
+                            "fr": "Durée"
+                        },
+                        "field": "duration",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 1
+                    },
+                    {
+                        "title": {
+                            "en": "Service",
+                            "fr": "Service"
+                        },
+                        "field": "service",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 1
+                    },
+                    {
+                        "title": {
+                            "en": "Purpose",
+                            "fr": "Usage"
+                        },
+                        "field": "purpose",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthGrow": 3
+                    },
+                    {
+                        "cellClick": "removeRow",
+                        "formatterIcon": "trash",
+                        "headerSort": false,
+                        "headerHozAlign": "center",
+                        "hozAlign": "center",
+                        "widthShrink": 0,
+                        "width": 60,
+                        "minWidth": 60
+                    }
+                ],
+                "headerVisible": true,
+                "history": false,
+                "movableRows": true
+            }
+        }
+    },
+
+    "admin": {
+        "lists": {
+            "default": {
+                "label": {
+                    "en": "Cookie Gategories",
+                    "fr": "Catégories de témoin"
+                },
+                "properties": [
+                    "title",
+                    "readOnly",
+                    "active"
+                ],
+                "list_actions": [
+                    {
+                        "ident": "create",
+                        "url": "object/edit?obj_type=charcoal/cookie-consent/model/cookie-category"
+                    }
+                ],
+                "orders": {
+                    "position": {
+                        "property": "position",
+                        "mode": "asc"
+                    }
+                }
+            }
+        },
+        "default_list": "default",
+
+        "forms": {
+            "default": {
+                "groups": {
+                    "default": {
+                        "l10n_mode": "loop_inputs",
+                        "properties": [
+                            "id",
+                            "title",
+                            "readOnly",
+                            "cookies"
+                        ],
+                        "layout": {
+                            "structure": [
+                                { "columns": [ 1, 2, 1 ] },
+                                { "columns": [ 1 ] },
+                                { "columns": [ 1 ] }
+                            ]
+                        }
+                    }
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            }
+        },
+
+        "form_sidebars": {
+            "default": {
+                "properties": [
+                    "created",
+                    "last_modified",
+                    "active"
+                ],
+                "properties_options": {
+                    "active": {
+                        "output_type": "input"
+                    },
+                    "forceConsent": {
+                        "output_type": "input",
+                        "required_acl_permissions": [ "section_dev" ]
+                    }
+                }
+            }
+        },
+
+        "dashboards": {
+            "admin.create": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "!group_display_mode": "tab",
+                        "form_ident": "default",
+                        "novalidate": true
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "admin.edit": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "!group_display_mode": "tab",
+                        "form_ident": "default",
+                        "novalidate": true
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            }
+        },
+        "default_create_dashboard": "admin.create",
+        "default_edit_dashboard": "admin.edit"
+    }
+}
