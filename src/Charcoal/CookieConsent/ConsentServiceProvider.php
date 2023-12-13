@@ -46,15 +46,35 @@ class ConsentServiceProvider implements ServiceProviderInterface
             $transformers = new Container();
 
             $transformers['consent'] = function () use ($container) {
-                return new Transformer\Consent($container['translator'], $container['cookie-consent/transformers']);
+                return new Transformer\Consent(
+                    $container['translator'],
+                    $container['cookie-consent/transformers'],
+                    $container['model/collection/loader']
+                );
             };
 
             $transformers['consentModal'] = function () use ($container) {
-                return new Transformer\Structure\Consent\ConsentModal();
+                return new Transformer\Structure\Consent\ConsentModal(
+                    $container['translator']
+                );
             };
 
             $transformers['preferencesModal'] = function () use ($container) {
-                return new Transformer\Structure\Consent\PreferencesModal();
+                return new Transformer\Structure\Consent\PreferencesModal(
+                    $container['cookie-consent/transformers'],
+                    $container['translator']
+                );
+            };
+
+            $transformers['preferenceSection'] = function () {
+                return new Transformer\Structure\Consent\PreferenceSection();
+            };
+
+            $transformers['preferenceSectionWithCategory'] = function () use ($container) {
+                return new Transformer\Structure\Consent\PreferenceSectionWithCategory(
+                    $container['model/factory'],
+                    $container['translator']
+                );
             };
 
             return $transformers;

@@ -42,4 +42,11 @@ class ConsentModal extends StructureModel
 
         return $this;
     }
+
+    public function setRevisionMessage($message): ConsentModal
+    {
+        $this->revisionMessage = $this->property('revisionMessage')->parseVal($message);
+
+        return $this;
+    }
 }

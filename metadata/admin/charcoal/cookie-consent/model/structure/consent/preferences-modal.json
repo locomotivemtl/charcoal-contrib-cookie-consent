@@ -6,11 +6,76 @@
                 "fr": "Titre"
             }
         },
-        "description": {
-            "input_type": "charcoal/admin/property/input/tinymce/basic",
-            "label": {
-                "en": "Description",
-                "fr": "Description"
+        "body": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Summary",
+                    "fr": "Sommaire"
+                },
+                "collapsible": true
+            }
+        },
+        "necessary": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Category: Necessary",
+                    "fr": "Catégorie: Nécéssaire"
+                },
+                "collapsible": true
+            }
+        },
+        "functionality": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Category: Functionality",
+                    "fr": "Catégorie: Fonctionnel"
+                },
+                "collapsible": true
+            }
+        },
+        "performance": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Category: Performance",
+                    "fr": "Catégorie: Performance"
+                },
+                "collapsible": true
+            }
+        },
+        "targeting": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Category: Targeting",
+                    "fr": "Catégorie: Ciblage"
+                },
+                "collapsible": true
+            }
+        },
+        "footer": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "show_label": false,
+            "widget_data": {
+                "display": "card",
+                "title": {
+                    "en": "Footer",
+                    "fr": "Pied de page"
+                },
+                "collapsible": true
             }
         }
     },

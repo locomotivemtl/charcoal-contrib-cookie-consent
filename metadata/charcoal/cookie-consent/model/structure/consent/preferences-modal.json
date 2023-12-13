@@ -4,12 +4,29 @@
             "type": "string",
             "l10n": true
         },
-        "description": {
-            "type": "html",
-            "l10n": true,
-            "upload_path": "uploads/",
-            "filesystem": "public",
-            "public_access": true
+        "body": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section"
+        },
+        "necessary": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section-with-category"
+        },
+        "functionality": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section-with-category"
+        },
+        "performance": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section-with-category"
+        },
+        "targeting": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section-with-category"
+        },
+        "footer": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent/preference-section"
         }
     }
 }

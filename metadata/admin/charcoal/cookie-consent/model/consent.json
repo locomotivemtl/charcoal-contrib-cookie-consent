@@ -85,7 +85,13 @@
             "default": {
                 "groups": {
                     "default": {
+                        "title": {
+                            "en": "Consent Settings",
+                            "fr": "Préférences de Consentement"
+                        },
                         "l10n_mode": "loop_inputs",
+                        "show_icon": true,
+                        "icon": "cog",
                         "properties": [
                             "policyPageId",
                             "consentModal",
@@ -98,6 +104,22 @@
                                 { "columns": [ 1 ] }
                             ]
                         }
+                    },
+                    "categories": {
+                        "title": {
+                            "en": "Cookie Categories",
+                            "fr": "Catégories de Témoin"
+                        },
+                        "type": "charcoal/admin/widget/form-group/nested-widget",
+                        "show_header": false,
+                        "show_title": true,
+                        "show_tab_title": true,
+                        "show_icon": true,
+                        "icon": "list",
+                        "widget_data": {
+                            "type": "charcoal/admin/widget/table",
+                            "obj_type": "charcoal/cookie-consent/model/cookie-category"
+                        }
                     }
                 },
                 "sidebars": {
@@ -109,10 +131,14 @@
         "form_sidebars": {
             "default": {
                 "properties": [
-                    "active",
-                    "created"
+                    "created",
+                    "last_modified",
+                    "active"
                 ],
                 "properties_options": {
+                    "active": {
+                        "output_type": "input"
+                    },
                     "forceConsent": {
                         "output_type": "input",
                         "required_acl_permissions": [ "section_dev" ]
@@ -127,7 +153,7 @@
                     "form": {
                         "priority": 50,
                         "type": "charcoal/admin/widget/object-form",
-                        "!group_display_mode": "tab",
+                        "group_display_mode": "tab",
                         "form_ident": "default",
                         "novalidate": true
                     }
@@ -143,7 +169,7 @@
                     "form": {
                         "priority": 50,
                         "type": "charcoal/admin/widget/object-form",
-                        "!group_display_mode": "tab",
+                        "group_display_mode": "tab",
                         "form_ident": "default",
                         "novalidate": true
                     }

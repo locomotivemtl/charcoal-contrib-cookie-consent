@@ -3,21 +3,30 @@
 namespace Charcoal\CookieConsent\Transformer\Structure\Consent;
 
 use Charcoal\CookieConsent\Model;
+use Charcoal\Translator\Translator;
+use Charcoal\Translator\TranslatorAwareTrait;
 
 /**
  * Transformer: Consent Modal
  */
 class ConsentModal
 {
-    public function __construct()
+    use TranslatorAwareTrait;
+
+    public function __construct(Translator $translator)
     {
+        $this->setTranslator($translator);
     }
 
-    public function transform( Model\structure\consent\ConsentModal $consentModal): ?array
+    public function transform(Model\structure\consent\ConsentModal $consentModal): array
     {
         return [
-            'title' => (string)$consentModal['title'],
-            'description' => (string)$consentModal['description'],
+            'title'              => (string)$consentModal['title'],
+            'description'        => (string)$consentModal['description'],
+            'revisionMessage'    => (string)$consentModal['revisionMessage'],
+            'acceptAllBtn'       => $this->translator()->trans('consent.btn.accept'),
+            'acceptNecessaryBtn' => $this->translator()->trans('consent.btn.reject'),
+            'showPreferencesBtn' => $this->translator()->trans('consent.btn.show.preferences'),
         ];
     }
 }

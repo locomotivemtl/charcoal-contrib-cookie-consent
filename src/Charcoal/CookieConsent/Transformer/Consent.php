@@ -3,63 +3,29 @@
 namespace Charcoal\CookieConsent\Transformer;
 
 use Charcoal\CookieConsent\Model;
-use Charcoal\Model\ModelInterface;
-use Charcoal\Property\StructureProperty;
+use Charcoal\Loader\CollectionLoader;
+use Charcoal\Loader\CollectionLoaderAwareTrait;
 use Charcoal\Translator\Translator;
-use InvalidArgumentException;
 use Pimple\Container;
-use Traversable;
 
 /**
  * Transformer: Consent
  */
 class Consent
 {
+    use StructureAwareTrait;
+    use CollectionLoaderAwareTrait;
+
     private Translator $translator;
-    private Container $transformers;
 
     public function __construct(
-        Translator $translator,
-        Container  $transformers
+        Translator       $translator,
+        Container        $transformers,
+        CollectionLoader $collectionLoader
     ) {
         $this->translator = $translator;
         $this->transformers = $transformers;
-    }
-
-    protected function parseStructure(ModelInterface $model, string $propertyIdent): array
-    {
-        $structure = $this->getStructure($model, $propertyIdent);
-        if (!$structure) {
-            return [];
-        }
-        return $this->transformers[$propertyIdent]->transform($structure);
-    }
-
-    protected function getStructure(ModelInterface $model, string $propertyIdent): ?ModelInterface
-    {
-        if (!$model->hasProperty($propertyIdent)) {
-            throw new InvalidArgumentException(
-                sprintf('Property ident %s does not exist for model %s', $propertyIdent, get_class($model))
-            );
-        }
-
-        if (!$model->p($propertyIdent) instanceof StructureProperty) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'Model property from ident %s must be a StructureProperty, %s received',
-                    $propertyIdent,
-                    get_class($model->p($propertyIdent))
-                )
-            );
-        }
-
-        if (!$model[$propertyIdent]) {
-            return null;
-        }
-
-        $pModel = $model->p($propertyIdent)->toModel();
-        $modelData = $model[$propertyIdent];
-        return $pModel->setData($modelData);
+        $this->setCollectionLoader($collectionLoader);
     }
 
     public function transform(Model\Consent $consent): ?array
@@ -91,9 +57,30 @@ class Consent
                     ]
                 ]
             ],
-            'categories' => [
+            'categories' => $this->fetchCategories(),
+        ];
+    }
 
-            ],
+    private function fetchCategories(): array
+    {
+        $categories = $this->collectionLoader()
+            ->setModel(Model\CookieCategory::class)
+            ->addFilter(['property' => 'active', 'value' => true])
+            ->load()
+            ->values();
+
+
+        $formattedCategories = array_map([$this, 'formatCategory'], $categories);
+
+        return array_combine(array_column($formattedCategories, 'ident'), $formattedCategories);
+    }
+
+    protected function formatCategory(Model\CookieCategory $category): array
+    {
+        return [
+            'ident'    => $category['id'],
+            'name'     => (string)$category['title'],
+            'readOnly' => (string)$category['readOnly'],
         ];
     }
 }

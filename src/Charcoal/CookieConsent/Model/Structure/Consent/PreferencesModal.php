@@ -36,7 +36,7 @@ class PreferencesModal extends StructureModel
         return $this->description;
     }
 
-    public function setDescription($description): PreferencesModal
+    public function setDescription($description): self
     {
         $this->description = $this->property('description')->parseVal($description);
 
