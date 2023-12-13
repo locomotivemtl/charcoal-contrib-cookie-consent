@@ -1,0 +1,12 @@
+consent.btn.accept;"Accept all"
+consent.btn.reject;"Reject all"
+consent.btn.show.preferences;"Preferences"
+consent.preferences.btn.accept;"Accept All"
+consent.preferences.btn.reject;"Reject all"
+consent.preferences.btn.accept.selection;"Save preferences"
+consent.preferences.btn.close;"Close modal"
+consent.cookie-table.header.name;"Name"
+consent.cookie-table.header.service;"Service"
+consent.cookie-table.header.purpose;"Purpose"
+consent.cookie-table.header.duration;"Duration"
+
