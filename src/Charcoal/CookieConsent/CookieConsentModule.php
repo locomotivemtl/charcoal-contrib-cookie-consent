@@ -12,6 +12,7 @@ use Charcoal\App\Module\ModuleInterface;
  */
 class CookieConsentModule extends AbstractModule implements ModuleInterface
 {
+    const ADMIN_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/admin.json';
     const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
 
     /**
@@ -20,6 +21,10 @@ class CookieConsentModule extends AbstractModule implements ModuleInterface
     public function setUp(): CookieConsentModule
     {
         $container = $this->app()->getContainer();
+
+        $container['translator/config']->addPaths([
+            'vendor/locomotivemtl/charcoal-contrib-cookie-consent/translations/'
+        ]);
 
         $serviceProvider = new ConsentServiceProvider();
         $container->register($serviceProvider);

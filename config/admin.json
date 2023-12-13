@@ -1,0 +1,17 @@
+{
+    "admin": {
+        "system_menu": {
+            "items": {
+                "cookie_consent": {
+                    "required_acl_permissions": ["system/admin"],
+                    "active": true,
+                    "label": {
+                        "en": "Cookie Consent",
+                        "fr": "Consentement"
+                    },
+                    "url": "object/edit?obj_type=charcoal/cookie-consent/model/consent&obj_id=1"
+                }
+            }
+        }
+    }
+}
