@@ -1,0 +1,18 @@
+{
+    "properties": {
+        "active": {
+            "type": "boolean"
+        },
+        "title": {
+            "type": "string",
+            "l10n": true
+        },
+        "description": {
+            "type": "html",
+            "l10n": true,
+            "upload_path": "uploads/",
+            "filesystem": "public",
+            "public_access": true
+        }
+    }
+}

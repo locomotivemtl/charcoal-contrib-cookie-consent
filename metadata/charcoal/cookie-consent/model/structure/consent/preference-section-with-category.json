@@ -1,0 +1,8 @@
+{
+    "properties": {
+        "linkedCategory": {
+            "type": "object",
+            "obj_type": "charcoal/cookie-consent/model/cookie-category"
+        }
+    }
+}
