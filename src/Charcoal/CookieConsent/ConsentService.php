@@ -30,7 +30,7 @@ class ConsentService
     /**
      * @return string
      */
-    public function getPluginSettingsAttr(): string
+    public function getPluginSettingsAsJson(): string
     {
         return json_encode($this->getPluginSettings(), (JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     }
