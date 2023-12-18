@@ -22,7 +22,13 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "charcoal/config": "^4.0",
+        "charcoal/core": "^4.0",
+        "charcoal/object": "^4.0",
+        "charcoal/property": "^4.0",
+        "charcoal/translator": "^4.0",
+        "pimple/pimple": "^3.5"
     },
     "require-dev": {
         "charcoal/charcoal": "^4.0",
