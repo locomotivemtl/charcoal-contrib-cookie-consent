@@ -31,7 +31,7 @@
         "pimple/pimple": "^3.5"
     },
     "require-dev": {
-        "charcoal/charcoal": "^4.0",
+        "charcoal/charcoal": "dev-joel/feature/tabulator-input as 4.x-dev",
         "php-coveralls/php-coveralls": "^2.2",
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^9.5",
