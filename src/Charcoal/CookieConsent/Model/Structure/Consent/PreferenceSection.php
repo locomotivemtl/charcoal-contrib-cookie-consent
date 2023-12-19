@@ -9,9 +9,9 @@ use Charcoal\Translator\Translation;
  * Structure Model: Preference Section
  *
  * Section of content displayed in the Preferences Modal.
- * Can be linked with a Cookie Category to enable control over the said category and display the list of cookies related
- * to it.
  *
+ * Can be linked with a Cookie Category to enable control over the said
+ * category and display the list of cookies related to it.
  *
  * {@see https://cookieconsent.orestbida.com/reference/configuration-reference.html#translation-preferencesmodal-sections}
  */

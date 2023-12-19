@@ -19,8 +19,8 @@ class Consent
     private Translator $translator;
 
     public function __construct(
-        Translator       $translator,
-        Container        $transformers,
+        Translator $translator,
+        Container $transformers,
         CollectionLoader $collectionLoader
     ) {
         $this->translator = $translator;

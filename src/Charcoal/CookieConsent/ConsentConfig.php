@@ -22,10 +22,10 @@ class ConsentConfig extends AbstractConfig
      */
     public function defaults(): array
     {
-        $baseDir = rtrim(realpath(__DIR__.'/../../../'), '/');
-        $confDir = $baseDir.'/config';
+        $baseDir = rtrim(realpath(__DIR__ . '/../../../'), '/');
+        $confDir = $baseDir . '/config';
 
-        return $this->loadFile($confDir.'/cookie-consent.json');
+        return $this->loadFile($confDir . '/cookie-consent.json');
     }
 
     /**
@@ -46,7 +46,7 @@ class ConsentConfig extends AbstractConfig
         return $this->delay;
     }
 
-    public function setDelay(int $delay):void
+    public function setDelay(int $delay): void
     {
         $this->delay = $delay;
     }
@@ -56,7 +56,7 @@ class ConsentConfig extends AbstractConfig
         return $this->page_scripts;
     }
 
-    public function setPageScripts(bool $page_scripts):void
+    public function setPageScripts(bool $page_scripts): void
     {
         $this->page_scripts = $page_scripts;
     }
@@ -66,7 +66,7 @@ class ConsentConfig extends AbstractConfig
         return $this->auto_language;
     }
 
-    public function setAutoLanguage(string $auto_language):void
+    public function setAutoLanguage(string $auto_language): void
     {
         $this->auto_language = $auto_language;
     }
@@ -76,7 +76,7 @@ class ConsentConfig extends AbstractConfig
         return $this->gui_options;
     }
 
-    public function setGuiOptions(array $gui_options):void
+    public function setGuiOptions(array $gui_options): void
     {
         $this->gui_options = $gui_options;
     }
@@ -87,13 +87,15 @@ class ConsentConfig extends AbstractConfig
     public function getPolicyPageObjType(): string
     {
         if (!isset($this->policyPageObjType)) {
-            throw new \Exception('No Consent page object type defined. Please provide a `policyPageObjType` option when declaring the Cookie Consent module.');
+            throw new \Exception(
+                'Expected a cookie consent page model to be defined [policyPageObjType]'
+            );
         }
 
         return $this->policyPageObjType;
     }
 
-    public function setPolicyPageObjType(string $policyPageObjType):void
+    public function setPolicyPageObjType(string $policyPageObjType): void
     {
         $this->policyPageObjType = $policyPageObjType;
     }

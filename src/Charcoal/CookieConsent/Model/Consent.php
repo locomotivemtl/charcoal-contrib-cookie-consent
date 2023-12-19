@@ -12,11 +12,11 @@ use Pimple\Container;
  */
 class Consent extends Content
 {
-    private string $policyPageObjType;
+    private ?string $policyPageObjType = null;
     private ?string $policyPageId;
     private ?Content $policyPage;
-    private array $consentModal;
-    private array $preferencesModal;
+    private array $consentModal = [];
+    private array $preferencesModal = [];
 
     /**
      * @param mixed  $propertyMetadata The property metadata array.

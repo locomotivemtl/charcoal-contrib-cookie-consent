@@ -6,5 +6,4 @@ use Charcoal\CookieConsent\Model\Structure\Consent\PreferenceSection;
 
 class PreferenceSectionWithCategory extends PreferenceSection
 {
-
 }

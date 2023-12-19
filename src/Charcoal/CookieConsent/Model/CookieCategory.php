@@ -13,6 +13,7 @@ use Charcoal\Translator\Translation;
 class CookieCategory extends Content
 {
     private ?Translation $title = null;
+    private ?TranslatableValue $cookies = null;
 
     public function setCookies($cookies)
     {

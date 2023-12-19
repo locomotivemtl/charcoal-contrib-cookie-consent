@@ -18,8 +18,8 @@ class ConsentService
     private Transformer\Consent $transformer;
 
     public function __construct(
-        ConfigInterface     $config,
-        Model\Consent       $consent,
+        ConfigInterface $config,
+        Model\Consent $consent,
         Transformer\Consent $transformer
     ) {
         $this->config = $config;
@@ -51,6 +51,10 @@ class ConsentService
      */
     public function getConsentData(): array
     {
-        return $this->transformer->transform($this->consent->load(1));
+        if ($this->consent->source()->tableExists()) {
+            $this->consent->load(1);
+        }
+
+        return $this->transformer->transform($this->consent);
     }
 }

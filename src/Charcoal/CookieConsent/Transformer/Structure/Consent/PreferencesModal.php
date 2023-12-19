@@ -49,7 +49,10 @@ class PreferencesModal
         $this->setTranslator($translator);
     }
 
-    public function transform(Model\structure\consent\preferencesModal $preferencesModal): ?array
+    /**
+     * @return array<string, mixed>
+     */
+    public function transform(Model\Structure\Consent\PreferencesModal $preferencesModal): ?array
     {
         return [
             'title'              => (string)$preferencesModal['title'],
@@ -61,7 +64,10 @@ class PreferencesModal
         ];
     }
 
-    private function parseSections(Model\Structure\Consent\PreferencesModal $preferencesModal)
+    /**
+     * @return list<array<string, mixed>>
+     */
+    private function parseSections(Model\Structure\Consent\PreferencesModal $preferencesModal): array
     {
         $parseSection = function ($sectionData) use ($preferencesModal) {
             return $this->parseStructure(

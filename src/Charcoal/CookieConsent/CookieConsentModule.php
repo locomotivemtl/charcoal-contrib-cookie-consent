@@ -12,8 +12,8 @@ use Charcoal\App\Module\ModuleInterface;
  */
 class CookieConsentModule extends AbstractModule implements ModuleInterface
 {
-    const ADMIN_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/admin.json';
-    const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
+    public const ADMIN_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/admin.json';
+    public const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
 
     /**
      * @return $this

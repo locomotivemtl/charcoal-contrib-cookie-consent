@@ -15,6 +15,7 @@ class ConsentModal extends StructureModel
 {
     private ?Translation $title = null;
     private ?Translation $description = null;
+    private ?Translation $revisionMessage = null;
 
     /**
      * @param mixed $title Translation string.

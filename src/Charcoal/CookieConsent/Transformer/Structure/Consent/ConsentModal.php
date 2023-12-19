@@ -18,7 +18,7 @@ class ConsentModal
         $this->setTranslator($translator);
     }
 
-    public function transform(Model\structure\consent\ConsentModal $consentModal): array
+    public function transform(Model\Structure\Consent\ConsentModal $consentModal): array
     {
         return [
             'title'              => (string)$consentModal['title'],

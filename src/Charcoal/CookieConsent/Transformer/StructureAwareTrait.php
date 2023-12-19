@@ -20,7 +20,8 @@ trait StructureAwareTrait
         if (!$structure) {
             return [];
         }
-        return $this->transformers[$transformerIdent ?? $propertyIdent]->transform($structure);
+        $transformerIdent ??= $propertyIdent;
+        return $this->transformers[$transformerIdent]->transform($structure);
     }
 
     protected function getStructure(ModelInterface $model, string $propertyIdent): ?ModelInterface
