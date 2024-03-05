@@ -15,19 +15,16 @@ class CookieConsentModule extends AbstractModule implements ModuleInterface
     public const ADMIN_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/admin.json';
     public const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
 
-    /**
-     * @return $this
-     */
-    public function setUp(): CookieConsentModule
+    public function setUp(): self
     {
+        /** @var \Pimple\Container */
         $container = $this->app()->getContainer();
 
         $container['translator/config']->addPaths([
             'vendor/locomotivemtl/charcoal-contrib-cookie-consent/translations/'
         ]);
 
-        $serviceProvider = new ConsentServiceProvider();
-        $container->register($serviceProvider);
+        $container->register(new CookieConsentServiceProvider());
 
         return $this;
     }

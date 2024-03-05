@@ -6,23 +6,14 @@ use Charcoal\CookieConsent\Model;
 use Charcoal\CookieConsent\Transformer;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Tinify\Exception;
 
 /**
  * Service Provider: Cookie Consent.
  */
-class ConsentServiceProvider implements ServiceProviderInterface
+class CookieConsentServiceProvider implements ServiceProviderInterface
 {
-    /**
-     * @param Container $container Pimple DI container.
-     * @return void
-     */
     public function register(Container $container)
     {
-        /**
-         * @param Container $container
-         * @return ConsentConfig
-         */
         $container['cookie-consent/config'] = function (Container $container) {
             $config = $container['config']->get('modules.charcoal/cookie-consent/cookie-consent');
 
@@ -42,7 +33,6 @@ class ConsentServiceProvider implements ServiceProviderInterface
         };
 
         $container['cookie-consent/transformers'] = function (Container $container) {
-
             $transformers = new Container();
 
             $transformers['consent'] = function () use ($container) {
