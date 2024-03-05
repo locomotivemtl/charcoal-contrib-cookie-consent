@@ -56,10 +56,10 @@ class PreferencesModal
     {
         return [
             'title'              => (string)$preferencesModal['title'],
-            'acceptAllBtn'       => $this->translator()->trans('consent.preferences.btn.accept'),
-            'acceptNecessaryBtn' => $this->translator()->trans('consent.preferences.btn.reject'),
-            'savePreferencesBtn' => $this->translator()->trans('consent.preferences.btn.accept.selection'),
-            'closeIconLabel'     => $this->translator()->trans('consent.preferences.btn.close'),
+            'acceptAllBtn'       => $this->translator()->trans('cookie-consent.modal.preferences.accept-all'),
+            'acceptNecessaryBtn' => $this->translator()->trans('cookie-consent.modal.preferences.accept-necessary'),
+            'savePreferencesBtn' => $this->translator()->trans('cookie-consent.modal.preferences.save-preferences'),
+            'closeIconLabel'     => $this->translator()->trans('cookie-consent.modal.close-icon-label'),
             'sections'           => $this->parseSections($preferencesModal),
         ];
     }

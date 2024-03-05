@@ -38,10 +38,10 @@ class PreferenceSectionWithCategory extends PreferenceSection
             'linkedCategory' => $preferenceSection['linkedCategory'],
             'cookieTable'    => [
                 'headers' => [
-                    'name'     => $this->translator()->trans('consent.cookie-table.header.name'),
-                    'service'  => $this->translator()->trans('consent.cookie-table.header.service'),
-                    'purpose'  => $this->translator()->trans('consent.cookie-table.header.purpose'),
-                    'duration' => $this->translator()->trans('consent.cookie-table.header.duration')
+                    'name'     => $this->translator()->trans('cookie-consent.cookie-table.header.name'),
+                    'service'  => $this->translator()->trans('cookie-consent.cookie-table.header.service'),
+                    'purpose'  => $this->translator()->trans('cookie-consent.cookie-table.header.purpose'),
+                    'duration' => $this->translator()->trans('cookie-consent.cookie-table.header.duration')
                 ],
                 'body'    => json_decode($cookies, JSON_PRETTY_PRINT)
             ]

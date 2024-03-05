@@ -24,9 +24,10 @@ class ConsentModal
             'title'              => (string)$consentModal['title'],
             'description'        => (string)$consentModal['description'],
             'revisionMessage'    => (string)$consentModal['revisionMessage'],
-            'acceptAllBtn'       => $this->translator()->trans('consent.btn.accept'),
-            'acceptNecessaryBtn' => $this->translator()->trans('consent.btn.reject'),
-            'showPreferencesBtn' => $this->translator()->trans('consent.btn.show.preferences'),
+            'acceptAllBtn'       => $this->translator()->trans('cookie-consent.modal.consent.accept-all'),
+            'acceptNecessaryBtn' => $this->translator()->trans('cookie-consent.modal.consent.accept-necessary'),
+            'showPreferencesBtn' => $this->translator()->trans('cookie-consent.modal.consent.show-preferences'),
+            'closeIconLabel'     => $this->translator()->trans('cookie-consent.modal.close-icon-label'),
         ];
     }
 }
