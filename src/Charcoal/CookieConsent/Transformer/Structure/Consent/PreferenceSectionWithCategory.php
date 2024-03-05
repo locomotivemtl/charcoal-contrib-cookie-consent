@@ -41,9 +41,9 @@ class PreferenceSectionWithCategory extends PreferenceSection
                     'name'     => $this->translator()->trans('cookie-consent.cookie-table.header.name'),
                     'service'  => $this->translator()->trans('cookie-consent.cookie-table.header.service'),
                     'purpose'  => $this->translator()->trans('cookie-consent.cookie-table.header.purpose'),
-                    'duration' => $this->translator()->trans('cookie-consent.cookie-table.header.duration')
+                    'duration' => $this->translator()->trans('cookie-consent.cookie-table.header.duration'),
                 ],
-                'body'    => json_decode($cookies, JSON_PRETTY_PRINT)
+                'body'    => json_decode($cookies, JSON_PRETTY_PRINT),
             ]
         ];
 

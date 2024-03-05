@@ -54,8 +54,8 @@ class Consent
                     $locale => [
                         'consentModal'     => $consentModal,
                         'preferencesModal' => $preferencesModal,
-                    ]
-                ]
+                    ],
+                ],
             ],
             'categories' => $this->fetchCategories(),
         ];

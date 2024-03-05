@@ -19,27 +19,27 @@ class PreferencesModal
     private array $sectionsList = [
         [
             'ident'       => 'body',
-            'transformer' => 'preferenceSection'
+            'transformer' => 'preferenceSection',
         ],
         [
             'ident'       => 'necessary',
-            'transformer' => 'preferenceSectionWithCategory'
+            'transformer' => 'preferenceSectionWithCategory',
         ],
         [
             'ident'       => 'functionality',
-            'transformer' => 'preferenceSectionWithCategory'
+            'transformer' => 'preferenceSectionWithCategory',
         ],
         [
             'ident'       => 'performance',
-            'transformer' => 'preferenceSectionWithCategory'
+            'transformer' => 'preferenceSectionWithCategory',
         ],
         [
             'ident'       => 'targeting',
-            'transformer' => 'preferenceSectionWithCategory'
+            'transformer' => 'preferenceSectionWithCategory',
         ],
         [
             'ident'       => 'footer',
-            'transformer' => 'preferenceSection'
+            'transformer' => 'preferenceSection',
         ],
     ];
 
