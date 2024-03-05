@@ -19,11 +19,6 @@ class CookieConsentModule extends AbstractModule implements ModuleInterface
     {
         /** @var \Pimple\Container */
         $container = $this->app()->getContainer();
-
-        $container['translator/config']->addPaths([
-            'vendor/locomotivemtl/charcoal-contrib-cookie-consent/translations/'
-        ]);
-
         $container->register(new CookieConsentServiceProvider());
 
         return $this;

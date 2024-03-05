@@ -1,10 +1,12 @@
 {
-    "view": {
-        "paths": []
-    },
     "metadata": {
         "paths": [
             "vendor/locomotivemtl/charcoal-contrib-cookie-consent/metadata/"
+        ]
+    },
+    "translator": {
+        "paths": [
+            "vendor/locomotivemtl/charcoal-contrib-cookie-consent/translations/"
         ]
     }
 }
