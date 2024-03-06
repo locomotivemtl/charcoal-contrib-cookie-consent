@@ -1,0 +1,48 @@
+{
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "auto-increment"
+        },
+        "handle": {
+            "type": "id",
+            "mode": "custom",
+            "required": true
+        },
+        "name": {
+            "type": "string",
+            "l10n": true,
+            "required": true
+        },
+        "description": {
+            "type": "html",
+            "l10n": true,
+            "upload_path": "uploads/",
+            "filesystem": "public",
+            "public_access": true
+        },
+        "enabled": {
+            "type": "boolean"
+        },
+        "readOnly": {
+            "type": "boolean"
+        },
+        "reloadPage": {
+            "type": "boolean"
+        },
+        "cookiesTable": {
+            "type": "structure",
+            "l10n": true
+        },
+        "cookiesAutoClear": {
+            "type": "structure"
+        }
+    },
+
+    "sources": {
+        "default": {
+            "table": "charcoal_cookie_consent_categories"
+        }
+    },
+    "default_source": "default"
+}

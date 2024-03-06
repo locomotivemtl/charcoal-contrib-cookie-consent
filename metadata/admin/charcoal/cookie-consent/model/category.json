@@ -1,0 +1,358 @@
+{
+    "labels": {
+        "name": "cookie-consent.admin.model.category.plural_name",
+        "singular_name": "cookie-consent.admin.model.category.singular_name",
+        "create_item": "cookie-consent.admin.model.category.create_item",
+        "new_item": "cookie-consent.admin.model.category.new_item",
+        "view_item": "cookie-consent.admin.model.category.view_item",
+        "edit_item": "cookie-consent.admin.model.category.edit_item",
+        "all_items": "cookie-consent.admin.model.category.all_items"
+    },
+
+    "properties": {
+        "id": {
+            "label": "cookie-consent.admin.form.id.label"
+        },
+        "handle": {
+            "input_type": "charcoal/admin/property/input/text",
+            "label": "cookie-consent.admin.form.handle.label",
+            "description": "cookie-consent.admin.form.handle.help",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.cookie-category-handle.notes"
+        },
+        "name": {
+            "label": "cookie-consent.admin.form.name.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.cookie-category-name.notes"
+        },
+        "description": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "editor_options": {
+                "block_formats": "Paragraph=p;",
+                "quickbars_insert_toolbar": false,
+                "quickbars_selection_toolbar": "bold italic | quicklink",
+                "toolbar": "undo redo | bold italic small | bullist | link | removeformat"
+            },
+            "label": "cookie-consent.admin.form.description.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.cookie-category-description.notes"
+        },
+        "enabled": {
+            "label": "cookie-consent.admin.form.enabled.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.enabled.notes"
+        },
+        "readOnly": {
+            "label": "cookie-consent.admin.form.read-only.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.read-only.notes"
+        },
+        "reloadPage": {
+            "label": "cookie-consent.admin.form.reload-page.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.reload-page.notes"
+        },
+        "cookiesTable": {
+            "input_type": "charcoal/admin/property/input/tabulator",
+            "input_options": {
+                "addRow": true,
+                "addRowLabel": "cookie-consent.admin.form.add-cookie.label",
+                "validateOn": [
+                    "dataLoaded",
+                    "tableBuilt"
+                ]
+            },
+            "tabulator_options": {
+                "columns": [
+                    {
+                        "rowHandle": true,
+                        "formatter": "handle",
+                        "headerSort": false,
+                        "frozen": true,
+                        "widthShrink": 0,
+                        "width": 30,
+                        "minWidth": 30,
+                        "contextMenu": false
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.name",
+                        "field": "name",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 2
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.service",
+                        "field": "service",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 1
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.duration",
+                        "field": "duration",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 1
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.purpose",
+                        "field": "purpose",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthGrow": 3
+                    },
+                    {
+                        "cellClick": "removeRow",
+                        "formatterIcon": "trash",
+                        "headerSort": false,
+                        "headerHozAlign": "center",
+                        "hozAlign": "center",
+                        "widthShrink": 0,
+                        "width": 60,
+                        "minWidth": 60
+                    }
+                ],
+                "headerVisible": true,
+                "history": false,
+                "layout": "fitColumns",
+                "movableRows": true,
+                "placeholder": "cookie-consent.admin.form.cookies.none"
+            },
+            "label": "cookie-consent.admin.form.cookies.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.cookies-table.notes"
+        },
+        "cookiesAutoClear": {
+            "input_type": "charcoal/admin/property/input/tabulator",
+            "input_options": {
+                "addRow": true,
+                "addRowLabel": "cookie-consent.admin.form.add-cookie.label",
+                "validateOn": [
+                    "dataLoaded",
+                    "tableBuilt"
+                ]
+            },
+            "tabulator_options": {
+                "columns": [
+                    {
+                        "rowHandle": true,
+                        "formatter": "handle",
+                        "headerSort": false,
+                        "frozen": true,
+                        "widthShrink": 0,
+                        "width": 30,
+                        "minWidth": 30,
+                        "contextMenu": false
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.name",
+                        "field": "name",
+                        "editor": "input",
+                        "validator": "required",
+                        "widthShrink": 2
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.path",
+                        "field": "path",
+                        "editor": "input",
+                        "widthShrink": 1
+                    },
+                    {
+                        "title": "cookie-consent.cookie-table.header.domain",
+                        "field": "domain",
+                        "editor": "input",
+                        "widthShrink": 1
+                    },
+                    {
+                        "cellClick": "removeRow",
+                        "formatterIcon": "trash",
+                        "headerSort": false,
+                        "headerHozAlign": "center",
+                        "hozAlign": "center",
+                        "widthShrink": 0,
+                        "width": 60,
+                        "minWidth": 60
+                    }
+                ],
+                "headerVisible": true,
+                "history": false,
+                "layout": "fitColumns",
+                "movableRows": true,
+                "placeholder": "cookie-consent.admin.form.cookies.none"
+            },
+            "label": "cookie-consent.admin.form.cookies.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.cookies-autoclear.notes"
+        }
+    },
+
+    "admin": {
+        "lists": {
+            "default": {
+                "label": "cookie-consent.admin.form.cookie-categories.label",
+                "properties": [
+                    "name",
+                    "readOnly",
+                    "active"
+                ],
+                "orders": {
+                    "position": {
+                        "property": "position",
+                        "mode": "asc"
+                    }
+                },
+                "list_actions": [
+                    {
+                        "ident": "create",
+                        "url": "object/edit?obj_type=charcoal/cookie-consent/model/category"
+                    }
+                ]
+            }
+        },
+        "default_list": "default",
+
+        "forms": {
+            "default": {
+                "group_display_mode": "tab",
+                "groups": {
+                    "default": {},
+                    "cookies-table": {},
+                    "cookies-autoclear": {}
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            },
+            "quick": {
+                "group_display_mode": "lang",
+                "groups": {
+                    "default": {},
+                    "cookies-table": {
+                        "show_header": true
+                    },
+                    "cookies-autoclear": {
+                        "show_header": true
+                    }
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            }
+        },
+
+        "form_groups": {
+            "default": {
+                "title": "cookie-consent.admin.form.category.label",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "circle",
+                "properties": [
+                    "name",
+                    "handle",
+                    "description",
+                    "enabled",
+                    "readOnly"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1, 1 ] },
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1, 1 ] },
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "cookies-table": {
+                "title": "cookie-consent.admin.form.cookies-table.label",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "list",
+                "properties": [
+                    "cookiesTable"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "cookies-autoclear": {
+                "title": "cookie-consent.admin.form.cookies-autoclear.label",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "eraser",
+                "properties": [
+                    "reloadPage",
+                    "cookiesAutoClear"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            }
+        },
+
+        "form_sidebars": {
+            "default": {
+                "properties": [
+                    "created",
+                    "last_modified",
+                    "active"
+                ],
+                "properties_options": {
+                    "active": {
+                        "output_type": "input"
+                    },
+                    "forceConsent": {
+                        "output_type": "input",
+                        "required_acl_permissions": [ "section_dev" ]
+                    }
+                }
+            }
+        },
+
+        "dashboards": {
+            "admin.create": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "form_ident": "default",
+                        "novalidate": true
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "admin.edit": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "form_ident": "default",
+                        "novalidate": true
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            }
+        },
+        "default_create_dashboard": "admin.create",
+        "default_edit_dashboard": "admin.edit"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "properties": {
+        "title": {
+            "type": "string",
+            "l10n": true,
+            "required": true
+        },
+        "description": {
+            "type": "html",
+            "l10n": true,
+            "required": true,
+            "upload_path": "uploads/",
+            "filesystem": "public",
+            "public_access": true
+        }
+    }
+}

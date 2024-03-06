@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "auto-increment"
+        },
+        "consentRevision": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent-revision"
+        },
+        "consentModal": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/consent-modal"
+        },
+        "preferencesModal": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/preferences-modal"
+        },
+        "privacyPolicyLink": {
+            "type": "model-structure",
+            "structure_model_class": "charcoal/cookie-consent/model/structure/privacy-policy-link"
+        },
+        "categoryIds": {
+            "type": "object",
+            "obj_type": "charcoal/cookie-consent/model/category",
+            "multiple": true
+        }
+    },
+
+    "sources": {
+        "default": {
+            "table": "charcoal_cookie_consent_disclosures"
+        }
+    },
+    "default_source": "default"
+}

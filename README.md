@@ -15,6 +15,10 @@ plugin written in vanilla JS that is configurable from the Admin.
 composer require locomotivemtl/charcoal-contrib-cookie-consent
 ```
 
+### Setup
+
+#### Charcoal Module
+
 For Charcoal projects, the module can be registered from your configuration file:
 
 ```json
@@ -27,6 +31,8 @@ For Charcoal projects, the module can be registered from your configuration file
 
 The module will automatically register the service provider, the metadata path,
 and the [Admin][charcoal/admin] dashboard routing.
+
+#### Charcoal Service Provider
 
 If you are not using the module, the service provider can be registered
 from your configuration file:
@@ -41,6 +47,16 @@ from your configuration file:
 
 Consult the [package configuration files](./config) for what to add to your project.
 
+## Models
+
+After the module or service provider has been registered, create the database table
+for the primary model for configuring and disclosing cookie consent information:
+
+```shell
+./vendor/bin/charcoal admin/object/table/create --obj-type=charcoal/cookie-consent/model/disclosure
+./vendor/bin/charcoal admin/object/table/create --obj-type=charcoal/cookie-consent/model/category
+```
+
 ## Service Provider
 
 ### Parameters
@@ -53,7 +69,27 @@ Consult the [package configuration files](./config) for what to add to your proj
 
 ## Configuration
 
---TBD--
+If you are using the module, the package can be configured via its module registration:
+
+```jsonc
+{
+    "modules": {
+        "charcoal/cookie-consent/cookie-consent": {
+            // See available options below.
+        }
+    }
+}
+```
+
+Alternatively, it can be configured via your application configuration:
+
+```jsonc
+{
+    "cookie_consent": {
+        // See available options below.
+    }
+}
+```
 
 ## Usage
 

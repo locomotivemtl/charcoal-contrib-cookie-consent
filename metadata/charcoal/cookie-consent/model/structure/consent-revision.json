@@ -1,0 +1,19 @@
+{
+    "properties": {
+        "automaticRevision": {
+            "type": "boolean"
+        },
+        "revisionNumber": {
+            "type": "number",
+            "min": 0,
+            "step": 1
+        },
+        "revisionMessage": {
+            "type": "html",
+            "l10n": true,
+            "upload_path": "uploads/",
+            "filesystem": "public",
+            "public_access": true
+        }
+    }
+}

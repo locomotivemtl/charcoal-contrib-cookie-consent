@@ -5,7 +5,7 @@
                 "cookie_consent": {
                     "active": true,
                     "priority": 50,
-                    "url": "object/edit?obj_type=charcoal/cookie-consent/model/consent&obj_id=1",
+                    "url": "object/edit?obj_type=charcoal/cookie-consent/model/disclosure&obj_id=1",
                     "label": "cookie-consent.menu-item.label"
                 }
             }

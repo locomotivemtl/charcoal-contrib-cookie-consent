@@ -1,0 +1,47 @@
+{
+    "properties": {
+        "automaticRevision": {
+            "input_class": "js-condition-state-automaticRevision",
+            "label": "cookie-consent.admin.form.automatic-revision.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.automatic-revision.notes"
+        },
+        "revisionNumber": {
+            "form_group_css_class": "js-condition-target-automaticRevision-[!consentRevision[automaticRevision]]",
+            "label": "cookie-consent.admin.form.revision-number.label",
+            "description": "cookie-consent.admin.form.revision-number.help",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.revision-number.notes"
+        },
+        "revisionMessage": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "editor_options": {
+                "block_formats": "Paragraph=p;",
+                "quickbars_insert_toolbar": false,
+                "quickbars_selection_toolbar": "bold italic | quicklink",
+                "toolbar": "undo redo | bold italic small | bullist | link | removeformat"
+            },
+            "label": "cookie-consent.admin.form.revision-message.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.revision-message.notes"
+        }
+    },
+
+    "admin": {
+        "form_group": {
+            "l10n_mode": "loop_inputs",
+            "properties": [
+                "automaticRevision",
+                "revisionNumber",
+                "revisionMessage"
+            ],
+            "layout": {
+                "structure": [
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] }
+                ]
+            }
+        }
+    }
+}

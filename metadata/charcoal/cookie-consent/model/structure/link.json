@@ -1,0 +1,55 @@
+{
+    "defaultData": {
+        "type": "model"
+    },
+
+    "properties": {
+        "active": {
+            "type": "boolean"
+        },
+        "label": {
+            "type": "string",
+            "l10n": true
+        },
+        "type": {
+            "type": "string",
+            "required": true,
+            "allowNull": false,
+            "choices": {
+                "file": {
+                    "label": "cookie-consent.admin.form.link-file.label",
+                    "icon": "fa fa-paperclip"
+                },
+                "model": {
+                    "label": "cookie-consent.admin.form.link-model.label",
+                    "icon": "fa fa-database"
+                },
+                "url": {
+                    "label": "cookie-consent.admin.form.link-url.label",
+                    "icon": "fa fa-external-link"
+                }
+            }
+        },
+        "target": {
+            "type": "string",
+            "choices": {
+                "_blank": {
+                    "label": "cookie-consent.admin.form.link-target.blank"
+                }
+            }
+        },
+        "filePath": {
+            "type": "file",
+            "l10n": true,
+            "public_access": true
+        },
+        "modelId": {
+            "type": "object",
+            "multiple": false
+        },
+        "url": {
+            "type": "url",
+            "l10n": true
+        }
+    }
+}

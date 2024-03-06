@@ -1,0 +1,23 @@
+{
+    "properties": {
+        "title": {
+            "label": "cookie-consent.admin.form.title.label"
+        },
+        "description": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "editor_options": {
+                "block_formats": "Paragraph=p;",
+                "quickbars_insert_toolbar": false,
+                "quickbars_selection_toolbar": "bold italic | quicklink",
+                "toolbar": "undo redo | bold italic small | bullist | link | removeformat"
+            },
+            "label": "cookie-consent.admin.form.description.label"
+        }
+    },
+
+    "admin": {
+        "form_group": {
+            "l10n_mode": "loop_inputs"
+        }
+    }
+}

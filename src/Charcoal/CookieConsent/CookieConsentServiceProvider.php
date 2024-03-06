@@ -3,7 +3,7 @@
 namespace Charcoal\CookieConsent;
 
 use Charcoal\CookieConsent\Model;
-use Charcoal\CookieConsent\Transformer;
+use Charcoal\CookieConsent\Model\Repository;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -14,60 +14,77 @@ class CookieConsentServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
-        $container['cookie-consent/config'] = function (Container $container) {
-            $config = $container['config']->get('modules.charcoal/cookie-consent/cookie-consent');
+        /**
+         * @return array<string, class-string> The map of classes.
+         */
+        $container['cookie-consent/class-map'] = function (): array {
+            return [
+                'config/cookie-consent' => Config\CookieConsentConfig::class,
+                'config/plugin'         => Config\PluginConfig::class,
+                'model/category'        => Model\Category::class,
+                'model/disclosure'      => Model\Disclosure::class,
+            ];
+        };
 
-            return ConsentConfig::create($config);
+        /**
+         * @return Repository\DisclosureRepository<Model\Disclosure>
+         */
+        $container['cookie-consent/repository/disclosure'] = function (Container $container) {
+            $collectionLoader = $container['model/collection/loader'];
+            $collectionLoader->setModel($container['cookie-consent/class-map']['model/disclosure']);
+            $collectionLoader->setCollectionClass('array');
+
+            return Repository\DisclosureRepository::create($collectionLoader);
+        };
+
+        /**
+         * @return Repository\CategoryRepository<Model\Category>
+         */
+        $container['cookie-consent/repository/category'] = function (Container $container) {
+            $collectionLoader = $container['model/collection/loader'];
+            $collectionLoader->setModel($container['cookie-consent/class-map']['model/category']);
+            $collectionLoader->setCollectionClass('array');
+
+            return Repository\CategoryRepository::create($collectionLoader);
+        };
+
+        /**
+         * @return Repository\LinkRelationRepository<\Charcoal\Model\Modelinterface>
+         */
+        $container['cookie-consent/repository/link-relation'] = function (Container $container) {
+            $collectionLoader = $container['model/collection/loader'];
+            $collectionLoader->setModel($container['cookie-consent/config']->getPrivacyPolicyObjType());
+            $collectionLoader->setCollectionClass('array');
+
+            return Repository\LinkRelationRepository::create($collectionLoader);
+        };
+
+        $container['cookie-consent/config'] = function (Container $container) {
+            $appConfig    = $container['config'];
+            $cookieClass  = $container['cookie-consent/class-map']['config/cookie-consent'];
+            $cookieConfig = new $cookieClass();
+
+            $appOptions = $appConfig['cookie_consent'];
+            if ($appOptions) {
+                $cookieConfig->merge($appOptions);
+            }
+
+            $moduleOptions = $appConfig->get(
+                'modules.charcoal/cookie-consent/cookie-consent'
+            );
+            if ($moduleOptions) {
+                $cookieConfig->merge($moduleOptions);
+            }
+
+            return $cookieConfig;
         };
 
         $container['cookie-consent'] = function (Container $container) {
-            return new ConsentService(
-                $container['cookie-consent/config'],
-                $container['cookie-consent/consent'],
-                $container['cookie-consent/transformers']['consent']
+            return new CookieConsentManager(
+                $container['cookie-consent/config']->getPluginConfig(),
+                $container['cookie-consent/repository/disclosure'],
+                $container['translator']
             );
-        };
-
-        $container['cookie-consent/consent'] = function (Container $container) {
-            return $container['model/factory']->create(Model\Consent::class);
-        };
-
-        $container['cookie-consent/transformers'] = function (Container $container) {
-            $transformers = new Container();
-
-            $transformers['consent'] = function () use ($container) {
-                return new Transformer\Consent(
-                    $container['translator'],
-                    $container['cookie-consent/transformers'],
-                    $container['model/collection/loader']
-                );
-            };
-
-            $transformers['consentModal'] = function () use ($container) {
-                return new Transformer\Structure\Consent\ConsentModal(
-                    $container['translator']
-                );
-            };
-
-            $transformers['preferencesModal'] = function () use ($container) {
-                return new Transformer\Structure\Consent\PreferencesModal(
-                    $container['cookie-consent/transformers'],
-                    $container['translator']
-                );
-            };
-
-            $transformers['preferenceSection'] = function () {
-                return new Transformer\Structure\Consent\PreferenceSection();
-            };
-
-            $transformers['preferenceSectionWithCategory'] = function () use ($container) {
-                return new Transformer\Structure\Consent\PreferenceSectionWithCategory(
-                    $container['model/factory'],
-                    $container['translator']
-                );
-            };
-
-            return $transformers;
         };
     }
 }
