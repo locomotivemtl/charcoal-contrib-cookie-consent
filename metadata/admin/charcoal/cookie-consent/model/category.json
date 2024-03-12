@@ -326,8 +326,7 @@
                     "form": {
                         "priority": 50,
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default",
-                        "novalidate": true
+                        "form_ident": "default"
                     }
                 },
                 "layout": {
@@ -341,8 +340,7 @@
                     "form": {
                         "priority": 50,
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default",
-                        "novalidate": true
+                        "form_ident": "default"
                     }
                 },
                 "layout": {
