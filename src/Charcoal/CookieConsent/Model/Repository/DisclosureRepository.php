@@ -47,17 +47,18 @@ class DisclosureRepository
         }
 
         $results = $this->collectionLoader->load();
+        if ($results) {
+            if (\is_array($results)) {
+                return $results[0];
+            }
 
-        if (\is_array($results)) {
-            return $results[0];
-        }
+            if ($results instanceof Collection) {
+                return $results->first();
+            }
 
-        if ($results instanceof Collection) {
-            return $results->first();
-        }
-
-        foreach ($results as $result) {
-            return $result;
+            foreach ($results as $result) {
+                return $result;
+            }
         }
 
         throw ModelNotFoundException::create(
