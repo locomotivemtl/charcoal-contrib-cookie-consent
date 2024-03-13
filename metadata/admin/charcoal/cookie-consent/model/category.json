@@ -66,41 +66,39 @@
                 "columns": [
                     {
                         "rowHandle": true,
+                        "contextMenu": false,
                         "formatter": "handle",
                         "headerSort": false,
                         "frozen": true,
-                        "widthShrink": 0,
-                        "width": 30,
-                        "minWidth": 30,
-                        "contextMenu": false
+                        "width": 50
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.name",
                         "field": "name",
                         "editor": "input",
                         "validator": "required",
-                        "widthShrink": 2
+                        "widthGrow": 5
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.service",
                         "field": "service",
                         "editor": "input",
                         "validator": "required",
-                        "widthShrink": 1
+                        "widthGrow": 3
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.duration",
                         "field": "duration",
                         "editor": "input",
                         "validator": "required",
-                        "widthShrink": 1
+                        "widthGrow": 2
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.purpose",
                         "field": "purpose",
                         "editor": "input",
                         "validator": "required",
-                        "widthGrow": 3
+                        "widthGrow": 10
                     },
                     {
                         "cellClick": "removeRow",
@@ -108,13 +106,9 @@
                         "headerSort": false,
                         "headerHozAlign": "center",
                         "hozAlign": "center",
-                        "widthShrink": 0,
-                        "width": 60,
-                        "minWidth": 60
+                        "width": 50
                     }
                 ],
-                "headerVisible": true,
-                "history": false,
                 "layout": "fitColumns",
                 "movableRows": true,
                 "placeholder": "cookie-consent.admin.form.cookies.none"
@@ -137,32 +131,30 @@
                 "columns": [
                     {
                         "rowHandle": true,
+                        "contextMenu": false,
                         "formatter": "handle",
                         "headerSort": false,
                         "frozen": true,
-                        "widthShrink": 0,
-                        "width": 30,
-                        "minWidth": 30,
-                        "contextMenu": false
+                        "width": 50
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.name",
                         "field": "name",
                         "editor": "input",
                         "validator": "required",
-                        "widthShrink": 2
+                        "widthGrow": 1
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.path",
                         "field": "path",
                         "editor": "input",
-                        "widthShrink": 1
+                        "widthGrow": 1
                     },
                     {
                         "title": "cookie-consent.cookie-table.header.domain",
                         "field": "domain",
                         "editor": "input",
-                        "widthShrink": 1
+                        "widthGrow": 1
                     },
                     {
                         "cellClick": "removeRow",
@@ -170,13 +162,9 @@
                         "headerSort": false,
                         "headerHozAlign": "center",
                         "hozAlign": "center",
-                        "widthShrink": 0,
-                        "width": 60,
-                        "minWidth": 60
+                        "width": 50
                     }
                 ],
-                "headerVisible": true,
-                "history": false,
                 "layout": "fitColumns",
                 "movableRows": true,
                 "placeholder": "cookie-consent.admin.form.cookies.none"
