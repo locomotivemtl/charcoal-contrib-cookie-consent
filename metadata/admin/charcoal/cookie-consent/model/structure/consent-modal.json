@@ -3,6 +3,18 @@
         "description": {
             "show_notes": "above",
             "notes": "cookie-consent.admin.form.consent-modal-description.notes"
+        },
+        "footer": {
+            "input_type": "charcoal/admin/property/input/tinymce/basic",
+            "editor_options": {
+                "block_formats": "Paragraph=p;",
+                "quickbars_insert_toolbar": false,
+                "quickbars_selection_toolbar": "bold italic | quicklink",
+                "toolbar": "undo redo | bold italic small | bullist | link | removeformat"
+            },
+            "label": "cookie-consent.admin.form.footer.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.consent-modal-footer.notes"
         }
     }
 }

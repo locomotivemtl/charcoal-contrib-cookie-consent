@@ -2,6 +2,8 @@
 
 namespace Charcoal\CookieConsent\Model\Structure;
 
+use Charcoal\Translator\Translation;
+
 /**
  * Structure Model: Consent Modal
  *
@@ -10,4 +12,20 @@ namespace Charcoal\CookieConsent\Model\Structure;
  */
 class ConsentModal extends Section
 {
+    private ?Translation $footer = null;
+
+    public function getFooter(): ?Translation
+    {
+        return $this->footer;
+    }
+
+    /**
+     * @param mixed $footer The section footer.
+     */
+    public function setFooter($footer): self
+    {
+        $this->footer = $this->property('footer')->parseVal($footer);
+
+        return $this;
+    }
 }

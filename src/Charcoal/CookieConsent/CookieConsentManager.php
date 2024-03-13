@@ -98,27 +98,17 @@ class CookieConsentManager
         /** @var Model\Structure\PrivacyPolicyLink */
         $privacyPolicyInstance = $this->getStructureModel($disclosureInstance, 'privacyPolicyLink');
         $privacyPolicyTemplate = null;
-        $consentFooter = null;
         if ($privacyPolicyInstance) {
-            if ($privacyPolicyInstance->getActive()) {
-                $href = $privacyPolicyInstance->getHref();
-                if ($href) {
-                    $linkAttributes = $privacyPolicyInstance->getAttributes();
-                    $privacyPolicyTemplate = \sprintf(
-                        '<a href="%s" target="%s" rel="%s">%s</a>',
-                        $href . '?hide-cookie-consent',
-                        ($linkAttributes['target'] ?? '_self'),
-                        ($linkAttributes['rel'] ?? ''),
-                        '%s'
-                    );
-
-                    $consentFooter = \sprintf(
-                        $privacyPolicyTemplate,
-                        (string)$privacyPolicyInstance->getLabel()
-                    );
-                }
-            } else {
-                $privacyPolicyInstance = null;
+            $href = $privacyPolicyInstance->getHref();
+            if ($href) {
+                $linkAttributes = $privacyPolicyInstance->getAttributes();
+                $privacyPolicyTemplate = \sprintf(
+                    '<a href="%s" target="%s" rel="%s">%s</a>',
+                    $href . '?hide-cookie-consent',
+                    ($linkAttributes['target'] ?? '_self'),
+                    ($linkAttributes['rel'] ?? ''),
+                    '%s'
+                );
             }
         }
 
@@ -189,6 +179,15 @@ class CookieConsentManager
                 'showPreferencesModal' => $showPreferencesTemplate,
             ], $placeholderCounts)
             : null;
+
+        $consentFooter = \trim($consentInstance->getFooter());
+        $consentFooter = $consentFooter
+            ? $this->parsePlaceholders($this->p2br($consentFooter), [
+                'privacyPolicyLink'    => $privacyPolicyTemplate,
+                'showPreferencesModal' => $showPreferencesTemplate,
+            ], $placeholderCounts)
+            : null;
+
         $consentModal = [
             'title'              => (string)$consentInstance->getTitle(),
             'description'        => $consentDescription,
@@ -383,10 +382,8 @@ class CookieConsentManager
      * @param array<string, string> $placeholders The placeholders.
      * @param array<string, int>    $counts       The counts.
      */
-    protected function parsePlaceholders(string $text, array $placeholders = [], ?array &$counts = null): string
+    protected function parsePlaceholders(string $text, array $placeholders = [], ?array &$counts = []): string
     {
-        $counts = [];
-
         if (\preg_match_all('/\{\{ *(\w+?) *: *(.+?) *\}\}/', $text, $results, \PREG_SET_ORDER)) {
             foreach ($results as $matches) {
                 if (isset($placeholders[$matches[1]])) {

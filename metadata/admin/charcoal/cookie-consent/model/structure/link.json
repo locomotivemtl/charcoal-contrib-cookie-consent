@@ -1,11 +1,5 @@
 {
     "properties": {
-        "active": {
-            "label": "cookie-consent.admin.form.active.label"
-        },
-        "label": {
-            "label": "cookie-consent.admin.form.label"
-        },
         "type": {
             "input_type": "charcoal/admin/property/input/select",
             "label": "cookie-consent.admin.form.link-type.label"
@@ -52,8 +46,6 @@
         "form_group": {
             "l10n_mode": "loop_inputs",
             "properties": [
-                "active",
-                "label",
                 "type",
                 "target",
                 "filePath",

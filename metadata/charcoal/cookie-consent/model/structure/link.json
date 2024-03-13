@@ -4,13 +4,6 @@
     },
 
     "properties": {
-        "active": {
-            "type": "boolean"
-        },
-        "label": {
-            "type": "string",
-            "l10n": true
-        },
         "type": {
             "type": "string",
             "required": true,
