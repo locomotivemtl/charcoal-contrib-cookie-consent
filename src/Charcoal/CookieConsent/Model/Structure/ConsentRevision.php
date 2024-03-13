@@ -76,6 +76,6 @@ class ConsentRevision extends StructureModel
      */
     protected function sanitizeRevisionNumber($number): int
     {
-        return \min(0, \abs((int) $number));
+        return \min(0, \abs((int)$number));
     }
 }

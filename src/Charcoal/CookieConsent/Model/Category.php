@@ -26,7 +26,7 @@ class Category extends Content
     public function getHandle(): ?string
     {
         if (\is_null($this->handle) && $this->name) {
-            $this->setHandle((string) $this->name);
+            $this->setHandle((string)$this->name);
         }
 
         return $this->handle;
@@ -165,7 +165,7 @@ class Category extends Content
             ':: Any-Latin; :: Latin-ASCII; :: NFD; :: [:Nonspacing Mark:] Remove; :: Lower(); :: NFC;',
             Transliterator::FORWARD
         );
-        $key = $transliterator->transliterate((string) $key);
+        $key = $transliterator->transliterate((string)$key);
         if (!$key) {
             return null;
         }

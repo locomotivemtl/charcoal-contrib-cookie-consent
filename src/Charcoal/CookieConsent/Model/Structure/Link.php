@@ -175,17 +175,14 @@ class Link extends StructureModel
     public function getHref()
     {
         switch ($this->getType()) {
-            case self::TYPE_FILE: {
+            case self::TYPE_FILE:
                 return $this->getFilePath();
-            }
 
-            case self::TYPE_MODEL: {
+            case self::TYPE_MODEL:
                 return $this->getModel()['url'];
-            }
 
-            case self::TYPE_URL: {
+            case self::TYPE_URL:
                 return $this->getUrl();
-            }
         }
 
         return null;
