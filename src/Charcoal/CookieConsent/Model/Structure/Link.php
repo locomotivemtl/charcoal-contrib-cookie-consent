@@ -24,8 +24,6 @@ class Link extends StructureModel
 
     public const TARGET_BLANK = '_blank';
 
-    private bool $active = false;
-    private ?Translation $label = null;
     private string $type = self::DEFAULT_TYPE;
     private ?string $target = null;
 
@@ -35,41 +33,6 @@ class Link extends StructureModel
     private ?Translation $url = null;
 
     private ?LinkRelationRepository $modelRepository = null;
-
-    public function getActive(): bool
-    {
-        return $this->active;
-    }
-
-    public function isActive(): bool
-    {
-        return $this->getActive();
-    }
-
-    /**
-     * @param mixed $active The active toggle.
-     */
-    public function setActive($active): self
-    {
-        $this->active = (bool)$active;
-
-        return $this;
-    }
-
-    public function getLabel(): ?Translation
-    {
-        return $this->label;
-    }
-
-    /**
-     * @param mixed $label The link label.
-     */
-    public function setLabel($label): self
-    {
-        $this->label = $this->translator()->translation($label);
-
-        return $this;
-    }
 
     public function getType(): ?string
     {
