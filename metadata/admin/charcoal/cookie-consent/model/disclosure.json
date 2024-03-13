@@ -1,0 +1,211 @@
+{
+    "labels": {
+        "name": "cookie-consent.admin.model.disclosure.plural_name",
+        "singular_name": "cookie-consent.admin.model.disclosure.singular_name",
+        "create_item": "cookie-consent.admin.model.disclosure.create_item",
+        "new_item": "cookie-consent.admin.model.disclosure.new_item",
+        "view_item": "cookie-consent.admin.model.disclosure.view_item",
+        "edit_item": "cookie-consent.admin.model.disclosure.edit_item",
+        "all_items": "cookie-consent.admin.model.disclosure.all_items"
+    },
+
+    "properties": {
+        "id": {
+            "label": "cookie-consent.admin.form.id.label"
+        },
+        "consentRevision": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "widget_data": {
+                "display": "card"
+            },
+            "label": "cookie-consent.admin.form.consent-revision.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.consent-revision.notes"
+        },
+        "consentModal": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "widget_data": {
+                "display": "card"
+            },
+            "label": "cookie-consent.admin.form.consent-modal.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.consent-modal.notes"
+        },
+        "preferencesModal": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "widget_data": {
+                "display": "card"
+            },
+            "label": "cookie-consent.admin.form.preferences-modal.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.preferences-modal.notes"
+        },
+        "privacyPolicyLink": {
+            "input_type": "charcoal/admin/property/input/structure-widget",
+            "widget_data": {
+                "display": "card"
+            },
+            "label": "cookie-consent.admin.form.privacy-policy.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.privacy-policy.notes"
+        },
+        "categoryIds": {
+            "input_type": "charcoal/admin/property/input/selectize/list",
+            "deferred": true,
+            "allow_create": true,
+            "emptyChoice": "cookie-consent.admin.form.select.none",
+            "dialog_title_update": "cookie-consent.admin.model.category.edit_item",
+            "dialog_title_create": "cookie-consent.admin.model.category.new_item",
+            "pattern": "name",
+            "selectize_templates": {
+                "option": "name"
+            },
+            "choice_obj_map": {
+                "value": "id",
+                "label": "name"
+            },
+            "selectize_options": {
+                "create": false,
+                "plugins": {
+                    "drag_drop": {},
+                    "btn_remove": {},
+                    "btn_update": {}
+                }
+            },
+            "orders": [
+                {
+                    "property": "name",
+                    "mode": "desc"
+                }
+            ],
+            "label": "cookie-consent.admin.form.cookie-categories.label"
+        }
+    },
+
+    "admin": {
+        "forms": {
+            "default": {
+                "groups": {
+                    "consent-modal": {},
+                    "preferences-modal": {},
+                    "cookie-categories": {}
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            }
+        },
+
+        "form_groups": {
+            "consent-modal": {
+                "title": "cookie-consent.admin.form.consent-modal.label",
+                "l10n_mode": "loop_inputs",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "window-maximize",
+                "properties": [
+                    "consentModal",
+                    "consentRevision",
+                    "privacyPolicyLink"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "preferences-modal": {
+                "title": "cookie-consent.admin.form.preferences-modal.label",
+                "l10n_mode": "loop_inputs",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "window-maximize",
+                "properties": [
+                    "preferencesModal"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "cookie-categories": {
+                "title": "cookie-consent.admin.form.cookie-categories.label",
+                "show_header": false,
+                "show_title": true,
+                "show_tab_title": true,
+                "show_icon": true,
+                "icon": "list",
+                "properties": [
+                    "categoryIds"
+                ],
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] },
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            }
+        },
+
+        "form_sidebars": {
+            "default": {
+                "properties": [
+                    "created",
+                    "last_modified",
+                    "active"
+                ],
+                "properties_options": {
+                    "active": {
+                        "output_type": "input"
+                    },
+                    "forceConsent": {
+                        "output_type": "input"
+                    }
+                }
+            }
+        },
+
+        "dashboards": {
+            "admin.create": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "group_display_mode": "tab",
+                        "form_ident": "default"
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            },
+            "admin.edit": {
+                "widgets": {
+                    "form": {
+                        "priority": 50,
+                        "type": "charcoal/admin/widget/object-form",
+                        "group_display_mode": "tab",
+                        "form_ident": "default"
+                    }
+                },
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                }
+            }
+        },
+        "default_create_dashboard": "admin.create",
+        "default_edit_dashboard": "admin.edit"
+    }
+}

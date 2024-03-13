@@ -1,0 +1,79 @@
+{
+    "properties": {
+        "type": {
+            "input_type": "charcoal/admin/property/input/select",
+            "label": "cookie-consent.admin.form.link-type.label"
+        },
+        "target": {
+            "input_type": "charcoal/admin/property/input/checkbox",
+            "label": "cookie-consent.admin.form.link-target.label"
+        },
+        "filePath": {
+            "upload_path": "uploads/resources/files",
+            "label": "cookie-consent.admin.form.link-file.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.link-file.notes"
+        },
+        "modelId": {
+            "input_type": "charcoal/admin/property/input/selectize",
+            "deferred": true,
+            "allow_create": false,
+            "allow_update": false,
+            "selectize_options": {
+                "create": false,
+                "maxItems": 1,
+                "plugins": {
+                    "drag_drop": {},
+                    "btn_remove": {}
+                }
+            },
+            "selectize_templates": {
+                "option": "{{ choiceLabelMulti }}"
+            },
+            "emptyChoice": "cookie-consent.admin.form.select.none",
+            "label": "cookie-consent.admin.form.link-model.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.link-model.notes"
+        },
+        "url": {
+            "label": "cookie-consent.admin.form.link-url.label",
+            "show_notes": "above",
+            "notes": "cookie-consent.admin.form.link-url.notes"
+        }
+    },
+
+    "admin": {
+        "form_group": {
+            "l10n_mode": "loop_inputs",
+            "properties": [
+                "type",
+                "target",
+                "filePath",
+                "modelId",
+                "url"
+            ],
+            "!properties_options": {
+                "filePath": {
+                    "required": true
+                },
+                "modelId": {
+                    "required": true
+                },
+                "url": {
+                    "required": true
+                }
+            },
+            "layout": {
+                "structure":  [
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] },
+                    { "columns": [ 1 ] }
+                ]
+            }
+        }
+    }
+}

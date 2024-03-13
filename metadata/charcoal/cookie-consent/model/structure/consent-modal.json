@@ -1,0 +1,12 @@
+{
+    "properties": {
+        "footer": {
+            "type": "html",
+            "l10n": true,
+            "required": false,
+            "upload_path": "uploads/",
+            "filesystem": "public",
+            "public_access": true
+        }
+    }
+}

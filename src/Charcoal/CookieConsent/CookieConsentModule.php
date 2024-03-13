@@ -12,17 +12,14 @@ use Charcoal\App\Module\ModuleInterface;
  */
 class CookieConsentModule extends AbstractModule implements ModuleInterface
 {
-    const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
+    public const ADMIN_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/admin.json';
+    public const APP_CONFIG = 'vendor/locomotivemtl/charcoal-contrib-cookie-consent/config/config.json';
 
-    /**
-     * @return $this
-     */
-    public function setUp(): CookieConsentModule
+    public function setUp(): self
     {
+        /** @var \Pimple\Container */
         $container = $this->app()->getContainer();
-
-        $serviceProvider = new ConsentServiceProvider();
-        $container->register($serviceProvider);
+        $container->register(new CookieConsentServiceProvider());
 
         return $this;
     }
