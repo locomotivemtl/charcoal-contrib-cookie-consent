@@ -4,30 +4,22 @@ namespace Charcoal\CookieConsent\Model\Repository;
 
 use Charcoal\CookieConsent\Exception\ModelNotFoundException;
 use Charcoal\Model\Collection;
-use Charcoal\Loader\CollectionLoader;
 use Charcoal\Model\ModelInterface;
+use Charcoal\Loader\CollectionLoader;
 
 /**
  * Link Model Repository Decorator
  *
  * Retrieves a model from a model identifier for a link.
  */
-final class LinkRelationRepository
+class LinkRelationRepository
 {
-    /** @var CollectionLoader<ModelInterface> */
     protected CollectionLoader $collectionLoader;
 
-    /**
-     * @param  CollectionLoader<Modelinterface> $collectionLoader
-     * @return static
-     */
-    public static function create(
+    public function __construct(
         CollectionLoader $collectionLoader
     ) {
-        $modelRepository = new static();
-        $modelRepository->collectionLoader = $collectionLoader;
-
-        return $modelRepository;
+        $this->collectionLoader = $collectionLoader;
     }
 
     /**
@@ -42,7 +34,7 @@ final class LinkRelationRepository
      * @param  int|string $id
      * @throws ModelNotFoundException
      */
-    public function getModel($id): Modelinterface
+    public function getModel($id): ModelInterface
     {
         $this->collectionLoader
             ->reset()
@@ -69,9 +61,5 @@ final class LinkRelationRepository
             $this->collectionLoader->modelClass(),
             [ $id ]
         );
-    }
-
-    private function __construct()
-    {
     }
 }

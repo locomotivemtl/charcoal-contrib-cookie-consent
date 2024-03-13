@@ -72,7 +72,7 @@ class ConsentRevision extends StructureModel
      * @param  mixed $number The revision number.
      * @return int
      *
-     * @psalm-return positive-int
+     * @psalm-return int<0, max>
      */
     protected function sanitizeRevisionNumber($number): int
     {

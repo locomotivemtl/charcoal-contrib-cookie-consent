@@ -34,7 +34,7 @@ class CookieConsentServiceProvider implements ServiceProviderInterface
             $collectionLoader->setModel($container['cookie-consent/class-map']['model/disclosure']);
             $collectionLoader->setCollectionClass('array');
 
-            return Repository\DisclosureRepository::create($collectionLoader);
+            return new Repository\DisclosureRepository($collectionLoader);
         };
 
         /**
@@ -45,7 +45,7 @@ class CookieConsentServiceProvider implements ServiceProviderInterface
             $collectionLoader->setModel($container['cookie-consent/class-map']['model/category']);
             $collectionLoader->setCollectionClass('array');
 
-            return Repository\CategoryRepository::create($collectionLoader);
+            return new Repository\CategoryRepository($collectionLoader);
         };
 
         /**
@@ -56,7 +56,7 @@ class CookieConsentServiceProvider implements ServiceProviderInterface
             $collectionLoader->setModel($container['cookie-consent/config']->getPrivacyPolicyObjType());
             $collectionLoader->setCollectionClass('array');
 
-            return Repository\LinkRelationRepository::create($collectionLoader);
+            return new Repository\LinkRelationRepository($collectionLoader);
         };
 
         $container['cookie-consent/config'] = function (Container $container) {

@@ -14,20 +14,12 @@ use Charcoal\Loader\CollectionLoader;
  */
 final class DisclosureRepository
 {
-    /** @var CollectionLoader<Disclosure> */
     protected CollectionLoader $collectionLoader;
 
-    /**
-     * @param  CollectionLoader<Disclosure> $collectionLoader
-     * @return static
-     */
-    public static function create(
+    public function __construct(
         CollectionLoader $collectionLoader
     ) {
-        $repository = new static();
-        $repository->collectionLoader = $collectionLoader;
-
-        return $repository;
+        $this->collectionLoader = $collectionLoader;
     }
 
     /**
@@ -64,9 +56,5 @@ final class DisclosureRepository
         throw ModelNotFoundException::create(
             $this->collectionLoader->modelClass()
         );
-    }
-
-    private function __construct()
-    {
     }
 }

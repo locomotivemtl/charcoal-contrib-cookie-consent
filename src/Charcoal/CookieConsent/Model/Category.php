@@ -18,7 +18,7 @@ class Category extends Content
     private bool $enabled = false;
     private bool $readOnly = false;
     private bool $reloadPage = false;
-    /** @var TranslatableValue<(array<string, mixed>)[]> */
+    /** @var TranslatableValue */
     private ?TranslatableValue $cookiesTable = null;
     /** @var (array<string, mixed>)[] */
     private ?array $cookiesAutoClear = null;

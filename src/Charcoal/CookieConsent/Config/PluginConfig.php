@@ -7,7 +7,7 @@ use Charcoal\Config\AbstractConfig;
 /**
  * Plugin Configuration Options.
  *
- * {@link https://cookieconsent.orestbida.com/reference/configuration-reference.html Configuration options for vanilla-cookieconsent.}
+ * {@link https://cookieconsent.orestbida.com/reference/configuration-reference.html}
  *
  * @psalm-type CookieTableRow = array{
  *     name: string,
@@ -22,15 +22,15 @@ use Charcoal\Config\AbstractConfig;
  *     domain?: string,
  * }
  *
- * @psalm-type AutoClear = array{
- *     cookies?: list<CookieAutoclear>,
+ * @psalm-type CookieCategoryAutoClear = array{
+ *     cookies?: list<CookieAutoClear>,
  *     reloadPage?: bool,
  * }
  *
  * @psalm-type CookieCategory = array{
- *     enabled: bool,
- *     readOnly: bool,
- *     autoClear: AutoClear,
+ *     enabled?: bool,
+ *     readOnly?: bool,
+ *     autoClear?: CookieCategoryAutoClear,
  * }
  *
  * @psalm-type Language = array{

@@ -3,9 +3,10 @@
 namespace Charcoal\CookieConsent\Exception;
 
 /**
- * @psalm-template TModel of \Charcoal\Model\Modelinterface
+ * @psalm-template TModel of \Charcoal\Model\ModelInterface
+ * @psalm-consistent-constructor
  */
-final class ModelNotFoundException extends \RuntimeException implements ExceptionInterface
+class ModelNotFoundException extends \RuntimeException implements ExceptionInterface
 {
     /** @vpsalm-var class-string<TModel> */
     protected ?string $model = null;
@@ -17,8 +18,8 @@ final class ModelNotFoundException extends \RuntimeException implements Exceptio
      * @param  (int|string)[] $ids
      * @return static
      *
-     * @psalm-param  class-string<TModel> $model
-     * @psalm-return list<int|string>     $ids
+     * @psalm-param class-string<\Charcoal\Model\ModelInterface> $model
+     * @psalm-param list<int|string>     $ids
      */
     public static function create(string $model, array $ids = [])
     {
@@ -29,13 +30,12 @@ final class ModelNotFoundException extends \RuntimeException implements Exceptio
     }
 
     /**
-     * @param  (int|string)[] $ids
-     * @return $this
+     * @param (int|string)[] $ids
      *
-     * @psalm-param  class-string<TModel> $model
-     * @psalm-return list<int|string>     $ids
+     * @psalm-param class-string<TModel> $model
+     * @psalm-param list<int|string>     $ids
      */
-    public function setModel(string $model, array $ids = [])
+    public function setModel(string $model, array $ids = []): self
     {
         $this->model = $model;
         $this->ids   = $ids;

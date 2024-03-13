@@ -15,7 +15,7 @@ use Charcoal\Translator\Translator;
  *
  * Generates the vanilla-cookieconsent configuration options.
  *
- * @psalm-import-type AutoClear from PluginConfig
+ * @psalm-import-type CookieCategoryAutoClear from PluginConfig
  * @psalm-import-type CookieTableRow from PluginConfig
  * @psalm-import-type CookieAutoClear from PluginConfig
  * @psalm-import-type CookieCategory from PluginConfig
@@ -218,7 +218,10 @@ class CookieConsentManager
 
             $revisionMessage = \trim((string)$revisionInstance->getRevisionMessage());
             if ($revisionMessage) {
-                if ($consentModal['description'] && \strpos($consentModal['description'], '{{revisionMessage}}') === false) {
+                if (
+                    $consentModal['description'] &&
+                    \strpos($consentModal['description'], '{{revisionMessage}}') === false
+                ) {
                     $consentModal['description'] .= '{{revisionMessage}}';
                 }
                 $consentModal['revisionMessage'] = '<br><br>' . $this->parsePlaceholders(
@@ -253,7 +256,10 @@ class CookieConsentManager
         return $pluginOptions->data();
     }
 
-    protected function getStructureModel(ModelInterface $model, string $propertyIdent): ?ModelInterface
+    /**
+     * @return ModelInterface[]|ModelInterface|null
+     */
+    protected function getStructureModel(ModelInterface $model, string $propertyIdent)
     {
         if (!$model->hasProperty($propertyIdent)) {
             throw new InvalidArgumentException(sprintf(
@@ -322,7 +328,7 @@ class CookieConsentManager
     /**
      * @return array<string, mixed>
      *
-     * @psalm-return AutoClear
+     * @psalm-return CookieCategoryAutoClear
      */
     protected function parseAutoClear(Model\Category $category): ?array
     {
@@ -379,8 +385,8 @@ class CookieConsentManager
     }
 
     /**
-     * @param array<string, string> $placeholders The placeholders.
-     * @param array<string, int>    $counts       The counts.
+     * @param array<string, mixed> $placeholders The placeholders.
+     * @param array<string, int>   $counts       The counts.
      */
     protected function parsePlaceholders(string $text, array $placeholders = [], ?array &$counts = []): string
     {

@@ -2,8 +2,11 @@
 <psalm xmlns="https://getpsalm.org/schema/config"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+       errorBaseline="psalm-baseline.xml"
        errorLevel="6"
-       resolveFromConfigFile="true" errorBaseline="psalm-baseline.xml">
+       findUnusedBaselineEntry="true"
+       findUnusedCode="false"
+       resolveFromConfigFile="true">
     <projectFiles>
         <directory name="src" />
         <directory name="tests" />

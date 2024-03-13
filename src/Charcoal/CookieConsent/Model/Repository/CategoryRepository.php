@@ -11,22 +11,14 @@ use Charcoal\Loader\CollectionLoader;
  *
  * Retrieves the active Category models.
  */
-final class CategoryRepository
+class CategoryRepository
 {
-    /** @var CollectionLoader<Category> */
     protected CollectionLoader $collectionLoader;
 
-    /**
-     * @param  CollectionLoader<Category> $collectionLoader
-     * @return static
-     */
-    public static function create(
+    public function __construct(
         CollectionLoader $collectionLoader
     ) {
-        $repository = new static();
-        $repository->collectionLoader = $collectionLoader;
-
-        return $repository;
+        $this->collectionLoader = $collectionLoader;
     }
 
     /**
@@ -64,9 +56,5 @@ final class CategoryRepository
         }
 
         return $categories;
-    }
-
-    private function __construct()
-    {
     }
 }
