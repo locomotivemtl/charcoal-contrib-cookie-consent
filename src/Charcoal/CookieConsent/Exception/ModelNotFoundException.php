@@ -5,7 +5,7 @@ namespace Charcoal\CookieConsent\Exception;
 /**
  * @psalm-template TModel of \Charcoal\Model\Modelinterface
  */
-class ModelNotFoundException extends \RuntimeException implements ExceptionInterface
+final class ModelNotFoundException extends \RuntimeException implements ExceptionInterface
 {
     /** @vpsalm-var class-string<TModel> */
     protected ?string $model = null;

@@ -4,17 +4,17 @@ namespace Charcoal\CookieConsent\Model\Repository;
 
 use Charcoal\CookieConsent\Exception\ModelNotFoundException;
 use Charcoal\Model\Collection;
-use Charcoal\Model\Modelinterface;
 use Charcoal\Loader\CollectionLoader;
+use Charcoal\Model\ModelInterface;
 
 /**
  * Link Model Repository Decorator
  *
  * Retrieves a model from a model identifier for a link.
  */
-class LinkRelationRepository
+final class LinkRelationRepository
 {
-    /** @var CollectionLoader<Modelinterface> */
+    /** @var CollectionLoader<ModelInterface> */
     protected CollectionLoader $collectionLoader;
 
     /**

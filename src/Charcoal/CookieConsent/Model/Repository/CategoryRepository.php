@@ -11,7 +11,7 @@ use Charcoal\Loader\CollectionLoader;
  *
  * Retrieves the active Category models.
  */
-class CategoryRepository
+final class CategoryRepository
 {
     /** @var CollectionLoader<Category> */
     protected CollectionLoader $collectionLoader;

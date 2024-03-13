@@ -3,7 +3,7 @@
 namespace Charcoal\CookieConsent\Model\Structure;
 
 use Charcoal\CookieConsent\Model\Repository\LinkRelationRepository;
-use Charcoal\Model\Modelinterface;
+use Charcoal\Model\ModelInterface;
 use Charcoal\Property\Structure\StructureModel;
 use Charcoal\Translator\TranslatorAwareTrait;
 use Charcoal\Translator\Translation;
@@ -236,7 +236,7 @@ class Link extends StructureModel
         return $this;
     }
 
-    public function getModel(): ModelInterface
+    public function getModel(): ?ModelInterface
     {
         $modelId = $this->getModelId();
         if (!$modelId) {
