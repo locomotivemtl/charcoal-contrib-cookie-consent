@@ -12,7 +12,7 @@ use Charcoal\Loader\CollectionLoader;
  *
  * Retrieves the active Disclosure models.
  */
-final class DisclosureRepository
+class DisclosureRepository
 {
     protected CollectionLoader $collectionLoader;
 
