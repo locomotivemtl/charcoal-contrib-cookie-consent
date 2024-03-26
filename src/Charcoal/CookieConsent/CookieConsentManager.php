@@ -103,7 +103,7 @@ class CookieConsentManager
             if ($href) {
                 $linkAttributes = $privacyPolicyInstance->getAttributes();
                 $privacyPolicyTemplate = \sprintf(
-                    '<a href="%s" target="%s" rel="%s">%s</a>',
+                    '<a href="%s" target="%s" rel="%s" data-cookie-consent="hide">%s</a>',
                     $href . '?hide-cookie-consent',
                     ($linkAttributes['target'] ?? '_self'),
                     ($linkAttributes['rel'] ?? ''),
