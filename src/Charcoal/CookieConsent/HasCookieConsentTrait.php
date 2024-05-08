@@ -14,7 +14,7 @@ trait HasCookieConsentTrait
     /**
      * @return string
      */
-    public function cookieConsentConfigAsJson() : string
+    public function cookieConsentConfigAsJson(): string
     {
         return $this->cookieConsent->getPluginOptionsAsJson();
     }
