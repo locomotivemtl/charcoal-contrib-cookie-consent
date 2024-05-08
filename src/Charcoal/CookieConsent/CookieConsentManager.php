@@ -3,6 +3,7 @@
 namespace Charcoal\CookieConsent;
 
 use Charcoal\CookieConsent\Exception\InvalidArgumentException;
+use Charcoal\CookieConsent\Exception\ModelNotFoundException;
 use Charcoal\CookieConsent\Model;
 use Charcoal\CookieConsent\Model\Repository\DisclosureRepository;
 use Charcoal\CookieConsent\Config\PluginConfig;
@@ -43,6 +44,14 @@ class CookieConsentManager
     }
 
     /**
+     * @return bool
+     */
+    public function isCookieConsentActive(): bool
+    {
+        return !!$this->getPluginOptions();
+    }
+
+    /**
      * @return string
      */
     public function getPluginOptionsAsJson(): string
@@ -67,7 +76,12 @@ class CookieConsentManager
      */
     public function createPluginOptions(): array
     {
-        $disclosureInstance = $this->disclosureRepository->getDisclosure();
+        try {
+            $disclosureInstance = $this->disclosureRepository->getDisclosure();
+        } catch (ModelNotFoundException $e) {
+            return [];
+        }
+
         if (!$disclosureInstance) {
             return [];
         }
