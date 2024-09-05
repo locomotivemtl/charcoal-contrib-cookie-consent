@@ -150,7 +150,7 @@ class Link extends StructureModel
                     return $this->getUrl();
             }
         } catch (ModelNotFoundException $e) {
-            return '';
+            // do nothing
         }
 
         return null;
