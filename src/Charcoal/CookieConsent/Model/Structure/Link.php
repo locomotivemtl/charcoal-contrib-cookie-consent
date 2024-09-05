@@ -2,6 +2,7 @@
 
 namespace Charcoal\CookieConsent\Model\Structure;
 
+use Charcoal\CookieConsent\Exception\ModelNotFoundException;
 use Charcoal\CookieConsent\Model\Repository\LinkRelationRepository;
 use Charcoal\Model\ModelInterface;
 use Charcoal\Property\Structure\StructureModel;
@@ -137,15 +138,19 @@ class Link extends StructureModel
      */
     public function getHref()
     {
-        switch ($this->getType()) {
-            case self::TYPE_FILE:
-                return $this->getFilePath();
+        try {
+            switch ($this->getType()) {
+                case self::TYPE_FILE:
+                    return $this->getFilePath();
 
-            case self::TYPE_MODEL:
-                return $this->getModel()['url'];
+                case self::TYPE_MODEL:
+                    return $this->getModel()['url'];
 
-            case self::TYPE_URL:
-                return $this->getUrl();
+                case self::TYPE_URL:
+                    return $this->getUrl();
+            }
+        } catch (ModelNotFoundException $e) {
+            return '';
         }
 
         return null;
