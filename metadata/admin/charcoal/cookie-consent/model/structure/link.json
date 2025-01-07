@@ -27,6 +27,10 @@
                     "btn_remove": {}
                 }
             },
+            "choice_obj_map": {
+                "value": "id",
+                "label": "{{ choiceLabel }}"
+            },
             "selectize_templates": {
                 "option": "{{ choiceLabelMulti }}"
             },
