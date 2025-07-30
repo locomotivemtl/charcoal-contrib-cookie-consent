@@ -4,6 +4,7 @@ namespace Charcoal\CookieConsent;
 
 use Charcoal\App\Module\AbstractModule;
 use Charcoal\App\Module\ModuleInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Charcoal Module: Cookie Consent.
@@ -17,9 +18,9 @@ class CookieConsentModule extends AbstractModule implements ModuleInterface
 
     public function setUp(): self
     {
-        /** @var \Pimple\Container */
+        /** @var ContainerInterface */
         $container = $this->app()->getContainer();
-        $container->register(new CookieConsentServiceProvider());
+        (new CookieConsentServiceProvider())->register($container);
 
         return $this;
     }
