@@ -2,7 +2,7 @@
 
 namespace Charcoal\CookieConsent;
 
-use Pimple\Container;
+use Psr\Container\ContainerInterface;
 
 /**
  * Provides templating tools for cookie consent integration
@@ -64,11 +64,11 @@ trait HasCookieConsentTrait
     }
 
     /**
-     * @param Container|CookieConsentManager $cookieConsent
+     * @param ContainerInterface|CookieConsentManager $cookieConsent
      * @return void
      */
     public function setCookieConsent($cookieConsent)
     {
-        $this->cookieConsent = $cookieConsent instanceof Container ? $cookieConsent['cookie-consent'] : $cookieConsent;
+        $this->cookieConsent = $cookieConsent instanceof ContainerInterface ? $cookieConsent['cookie-consent'] : $cookieConsent;
     }
 }

@@ -4,7 +4,7 @@ namespace Charcoal\CookieConsent\Model;
 
 use Charcoal\CookieConsent\Model\Repository\CategoryRepository;
 use Charcoal\Object\Content;
-use Pimple\Container;
+use Psr\Container\ContainerInterface;
 
 /**
  * Model: Cookies Disclosure
@@ -142,9 +142,9 @@ class Disclosure extends Content
         $this->categoryRepository = $repository;
     }
 
-    protected function setDependencies(Container $container)
+    protected function setDependencies(ContainerInterface $container)
     {
-        $this->setCategoryRepository($container['cookie-consent/repository/category']);
+        $this->setCategoryRepository($container->get('cookie-consent/repository/category'));
         parent::setDependencies($container);
     }
 }

@@ -29,7 +29,7 @@ class CookieConsentServiceProvider
          * @return Repository\DisclosureRepository<Model\Disclosure>
          */
         $container->set('cookie-consent/repository/disclosure', function (ContainerInterface $container) {
-            $collectionLoader = $container->get('model/collection/loader');
+            $collectionLoader = clone $container->get('model/collection/loader');
             $collectionLoader->setModel($container->get('cookie-consent/class-map')['model/disclosure']);
             $collectionLoader->setCollectionClass('array');
 
@@ -40,7 +40,7 @@ class CookieConsentServiceProvider
          * @return Repository\CategoryRepository<Model\Category>
          */
         $container->set('cookie-consent/repository/category', function (ContainerInterface $container) {
-            $collectionLoader = $container->get('model/collection/loader');
+            $collectionLoader = clone $container->get('model/collection/loader');
             $collectionLoader->setModel($container->get('cookie-consent/class-map')['model/category']);
             $collectionLoader->setCollectionClass('array');
 
@@ -51,7 +51,7 @@ class CookieConsentServiceProvider
          * @return Repository\LinkRelationRepository<\Charcoal\Model\Modelinterface>
          */
         $container->set('cookie-consent/repository/link-relation', function (ContainerInterface $container) {
-            $collectionLoader = $container->get('model/collection/loader');
+            $collectionLoader = clone $container->get('model/collection/loader');
             $collectionLoader->setModel($container->get('cookie-consent/config')->getPrivacyPolicyObjType());
             $collectionLoader->setCollectionClass('array');
 

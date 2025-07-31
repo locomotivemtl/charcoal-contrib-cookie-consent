@@ -9,7 +9,7 @@ use Charcoal\Property\Structure\StructureModel;
 use Charcoal\Translator\TranslatorAwareTrait;
 use Charcoal\Translator\Translation;
 use Charcoal\Validator\ValidatorInterface;
-use Pimple\Container;
+use Psr\Container\ContainerInterface;
 
 /**
  * Structure Model: Link
@@ -255,7 +255,7 @@ class Link extends StructureModel
     /**
      * {@inheritdoc}
      */
-    public function validate(ValidatorInterface &$v = null)
+    public function validate(?ValidatorInterface &$v = null)
     {
         return parent::validate($v) &&
             $this->validateFilePath() &&
@@ -313,10 +313,10 @@ class Link extends StructureModel
         $this->modelRepository = $repository;
     }
 
-    protected function setDependencies(Container $container)
+    protected function setDependencies(ContainerInterface $container)
     {
-        $this->setTranslator($container['translator']);
-        $this->setModelRepository($container['cookie-consent/repository/link-relation']);
+        $this->setTranslator($container->get('translator'));
+        $this->setModelRepository($container->get('cookie-consent/repository/link-relation'));
         parent::setDependencies($container);
     }
 
