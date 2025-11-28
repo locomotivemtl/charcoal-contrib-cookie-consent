@@ -29,7 +29,7 @@
         "charcoal/object": "^5.0",
         "charcoal/property": "^5.0",
         "charcoal/translator": "^5.0",
-        "pimple/pimple": "^3.5"
+        "php-di/php-di": "^7.0"
     },
     "require-dev": {
         "charcoal/app": "^5.0",
@@ -38,7 +38,7 @@
         "phpunit/phpunit": "^9.5",
         "seld/jsonlint": "^1.10",
         "squizlabs/php_codesniffer": "^3.8",
-        "vimeo/psalm": "^5.17"
+        "vimeo/psalm": "^5.17 || ^6.0"
     },
     "autoload": {
         "psr-4": {

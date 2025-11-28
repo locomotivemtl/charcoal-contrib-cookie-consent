@@ -69,6 +69,10 @@ trait HasCookieConsentTrait
      */
     public function setCookieConsent($cookieConsent)
     {
-        $this->cookieConsent = $cookieConsent instanceof ContainerInterface ? $cookieConsent['cookie-consent'] : $cookieConsent;
+        $this->cookieConsent = $cookieConsent;
+
+        if ($cookieConsent instanceof ContainerInterface) {
+            $this->cookieConsent = $cookieConsent['cookie-consent'];
+        }
     }
 }

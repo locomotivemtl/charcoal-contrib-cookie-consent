@@ -5,12 +5,16 @@ namespace Charcoal\CookieConsent;
 use Charcoal\CookieConsent\Model;
 use Charcoal\CookieConsent\Model\Repository;
 use Psr\Container\ContainerInterface;
+use DI\Container;
 
 /**
  * Service Provider: Cookie Consent.
  */
 class CookieConsentServiceProvider
 {
+    /**
+     * @param Container $container
+     */
     public function register(ContainerInterface $container)
     {
         /**
