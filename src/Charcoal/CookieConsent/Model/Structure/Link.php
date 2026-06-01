@@ -255,7 +255,7 @@ class Link extends StructureModel
     /**
      * {@inheritdoc}
      */
-    public function validate(ValidatorInterface &$v = null)
+    public function validate(ValidatorInterface &$v = null): bool
     {
         return parent::validate($v) &&
             $this->validateFilePath() &&
